@@ -11,6 +11,21 @@
   </head>
 
   <body>
+    <%= link_to destroy_admin_session_path, method: :delete,class: "nav-link text-light" do %>
+                  <i <i "fa-solid fa-cart-shopping" style="color: white"></i> 会員ログアウト
+                <% end %>
+              </li>
+     <% if flash[:notice] %>
+      <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
