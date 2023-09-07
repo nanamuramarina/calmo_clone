@@ -12,7 +12,7 @@ class Public::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   # def create
   #   super
-  # end
+  # ends
 
   # DELETE /resource/sign_out
   # def destroy
@@ -34,7 +34,11 @@ class Public::SessionsController < Devise::SessionsController
      root_path
   end
 
-
+  def guest_sign_in
+    customer = Customer.guest
+    sign_in customer
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 
 
 end
