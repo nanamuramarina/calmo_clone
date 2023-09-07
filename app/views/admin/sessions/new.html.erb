@@ -4,13 +4,13 @@
       <%= render "admin/shared/error_messages", resource: resource %>
       <div class="row offset-md-4 mb-3">
         <%= f.label :email, "メールアドレス", class:"mr-3" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "\uf0e0 mail", class: 'fa' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "sample@mail" %>
 
       </div>
 
       <div class="row offset-md-4 mb-3">
         <%= f.label :password,"パスワード", class:"mr-5" %>
-        <%= f.password_field :password, autocomplete: "current-password" ,placeholder: "\uf023 password", class: 'fa' %>
+        <%= f.password_field :password, autocomplete: "current-password"  %>
       </div>
 
       <div class="row offset-7" >
