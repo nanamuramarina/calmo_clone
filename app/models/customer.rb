@@ -30,12 +30,11 @@ class Customer < ApplicationRecord
   end
 
   def customer_status
-    if is_valid == true
+    if is_valid 
       "有効"
     else
       "退会"
     end
-    self.last_name + " " + self.first_name
   end
 
   def self.guest
