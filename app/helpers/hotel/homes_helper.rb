@@ -1,0 +1,2 @@
+module Hotel::HomesHelper
+end

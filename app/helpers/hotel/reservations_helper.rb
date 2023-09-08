@@ -1,0 +1,2 @@
+module Hotel::ReservationsHelper
+end
