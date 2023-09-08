@@ -19,6 +19,10 @@
                   会員ログアウト
                 <% end %>
 
+<%= link_to  destroy_hotel_session_path, method: :delete, class: "nav-link text-dark" do %>
+                  ホテルログアウト
+                <% end %>
+
 
       <% if flash[:notice] %>
         <p class="alert alert-success mt-3"><%= notice %></p>

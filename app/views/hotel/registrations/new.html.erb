@@ -1,0 +1,56 @@
+<div class="container mt-5">
+
+  <h2 class="font-weight-bold mb-4">新規ホテル登録</h2>
+
+  <%= form_with model: @hotel, url: hotel_registration_path, method: :post do |f| %>
+    <%= render "hotel/shared/error_messages", resource: resource %>
+
+    <div class="row mb-3">
+      <%= f.label :name, "ホテル名", class: "col-md-3 col-sm-3 mb-3" %>
+      <%= f.text_field :name, placeholder: "ホテル", autofocus: true, autocomplete: "name", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :post_code, "郵便番号", class: "col-md-3 col-sm-3 mb-3" %>
+      <%= f.text_field :post_code, placeholder: "0000000", autofocus: true, autocomplete: "post_code", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :address, "住所", class: "col-md-3 col-sm-3 mb-3" %>
+      <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", autofocus: true, autocomplete: "address", class: "col-lg-7 col-md-5 col-sm-4 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :phone_number, "電話番号", class: "col-md-3 col-sm-3 mb-3" %>
+      <%= f.text_field :phone_number, placeholder: "00000000000", autofocus: true, autocomplete: "phone_number", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :email , "メールアドレス", class: "col-md-3 col-sm-3 mb-3" %>
+      <%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :password, "パスワード(6文字以上)", class: "col-md-3 col-sm-3 mb-3" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :password_confirmation ,"パスワード(確認用)", class: "col-md-3 col-sm-3 mb-3" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="my-4 actions d-flex justify-content-center">
+      <div class="row">
+        <div class="mx-3">
+          <%= f.submit "新規登録", class: "btn btn-outline-success"%>
+        </div>
+        <div class="row mx-2">
+          <p>既に登録済みの方</p>
+          <p><%= render "hotel/shared/links"%></p>
+          <p>からログインしてください</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
