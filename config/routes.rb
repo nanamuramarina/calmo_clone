@@ -35,4 +35,13 @@ Rails.application.routes.draw do
     get "customers/withdraw" => "customers#withdraw", as:"withdraw"
     patch "/customers/withdraw" => "customers#withdraw"
   end
+
+  scope module: :hotel do
+    get "hotel/mypage" => "hotels#mypage", as:"hotel_mypage"
+    get "hotel/information" => "hotels#edit", as:"hotel_information"
+    patch "hotel/information/update" => "hotels#update", as:"hotel_information_update"
+    get "hotel/confirm_withdraw" => "hotels#confirm_withdraw", as:"hotel_confirm_withdraw"
+    get "hotels/withdraw" => "hotels#hotel_withdraw", as:"hotel_withdraw"
+    patch "/hotels/withdraw" => "hotels#hotel_withdraw"
+  end
 end

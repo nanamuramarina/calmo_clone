@@ -1,0 +1,37 @@
+<div class="container mt-3">
+
+  <h3 class="font-weight-bold mb-5">会員情報編集</h3>
+  <%= form_with model: @hotel, url: hotel_information_update_path do |f| %>
+    <div class="row mb-3">
+      <%= f.label :nsme, "ホテル名", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :post_code, "郵便番号", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :address, "住所", class: "col-lg-2 col-md-3 col-sm-4 mb-3"  %>
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-lg-7 col-md-6 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :phone_number, "電話番号", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :email , "メールアドレス", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mt-4 offset-lg-2 offset-md-1">
+      <%= f.submit "編集内容を保存", class:"btn btn-outline-success" %>
+      <div class="offset-lg-5 offset-md-7 mr-3 mt-3">
+        <%= link_to "退会する", hotel_confirm_withdraw_path, class:"btn btn-outline-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>

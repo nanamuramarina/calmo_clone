@@ -79,6 +79,11 @@
 
               <% elsif hotel_signed_in? %>
               <li>
+                <%= link_to hotel_mypage_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>マイページ
+                <% end %>
+              </li>
+              <li>
                 <%= link_to root_path, class: "nav-link text-light" do %>
                   <i style="color: white"></i>メニュー一覧
                 <% end %>
