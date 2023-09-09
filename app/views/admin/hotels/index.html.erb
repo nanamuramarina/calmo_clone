@@ -1,0 +1,33 @@
+<div class="container mt-3">
+
+  <h3 class="font-weight-bold mb-4">ホテル一覧</h3>
+
+  <div class="row">
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>ホテルID</th>
+          <th>ホテル名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tdody>
+       <% @hotels.each do |customer| %>
+        <tr>
+          <td><%= hotel.id %></td>
+          <td><%= link_to hotel.name, admin_hotel_path(hotel) %></td>
+          <td><%= hotel.email %></td>
+          <td class="font-weight-bold">
+            <% if hotel.is_valid %>
+              <p class="text-success">有効</p>
+            <% else %>
+              <p class="text-danger">退会</p>
+            <% end %>
+          </td>
+        </tr>
+       <% end %>
+       </tdody>
+    </table>
+  </div>
+</div>

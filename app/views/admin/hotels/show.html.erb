@@ -1,0 +1,44 @@
+<div class="container mt-3">
+
+  <h4 class="font-weight-bold"><%= @ホテl.name %>の詳細</h4>
+
+  <table class="table table-bordered mt-5">
+    <tr>
+      <th>ホテルID</th>
+      <td><%= @hotel.id %></td>
+    </tr>
+    <tr>
+      <th>氏名</th>
+      <td><%= @hotel.name %></td>
+    </tr>
+    <tr>
+      <th>郵便番号</th>
+      <td><%= @hotel.post_code %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @hotel.address %></td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td><%= @hotel.phone_number %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @hotel.email %></td>
+    </tr>
+    <tr>
+      <th>会員ステータス</th>
+      <td class="font-weight-bold">
+      <% if @hotel.is_valid %>
+        <p class="text-success">有効</p>
+      <% else %>
+        <p class="text-danger">退会</p>
+      <% end %>
+      </td>
+    </tr>
+  </table>
+  <div class="d-flex justify-content-center mt-4">
+    <%= link_to "編集する", edit_admin_hotel_path(@hotel), class: "btn btn-sm btn-outline-success mr-4" %>
+  </div>
+</div>

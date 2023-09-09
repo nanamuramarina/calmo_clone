@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :customers, only: [ :index, :create, :show, :edit, :update]
+    resources :hotels, only: [ :index, :create, :show, :edit, :update]
   end
 
 
