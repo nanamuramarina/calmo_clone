@@ -22,17 +22,6 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
-  def confirm_withdraw
-  end
-
-  def withdraw
-    current_customer.update(is_valid: false)
-    reset_session
-    flash[:notic] = "退会処理を実行いたしました"
-    redirect_to root_path
-  end
-
-
   private
 
   def customer_params
