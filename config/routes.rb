@@ -22,6 +22,15 @@ Rails.application.routes.draw do
   sessions: 'hotel/sessions'
 }
 
+  namespace :admin do
+    resources :customers, only: [ :index, :create, :show, :edit, :update]
+  end
+
+  # scope module: :admin do
+  #   get "customer/confirm_withdraw" => "customers#confirm_withdraw", as:"confirm_withdraw"
+  #   get "customers/withdraw" => "customers#withdraw", as:"withdraw"
+  # end
+
   scope module: :public do
     get "customer/mypage" => "customers#mypage", as:"mypage"
     get "customer/information" => "customers#edit", as:"information"
