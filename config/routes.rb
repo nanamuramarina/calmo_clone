@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     resources :hotels, only: [ :index, :create, :show, :edit, :update]
   end
 
+  namespace :hotel do
+    resources :products, only: [:new, :create, :index, :show, :edit, :update,]
+  end
+
 
   scope module: :public do
     get "customer/mypage" => "customers#mypage", as:"mypage"
