@@ -15,7 +15,7 @@
         <tr>
           <th>メニューID</th>
           <th>メニュー名</th>
-          <th>性込価格</th>
+          <th>税込価格</th>
           <th>ステータス</th>
         </tr>
       </thead>
@@ -29,6 +29,7 @@
                 <%= menu.title %>
               <% end %>
             </td>
+             <td><%= menu.price %>円</td>
             <td class="font-weight-bold">
               <% if menu.is_available %>
                 <p class="text-success">販売中</p>
