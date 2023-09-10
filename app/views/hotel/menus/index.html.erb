@@ -20,16 +20,15 @@
         </tr>
       </thead>
       <tbody>
-        <% @menu.each do |product| %>
+        <% @menu.each do |menu| %>
           <tr>
             <td><%= menu.id %></td>
             <td class="row">
-              <%= link_to hitel_menu_path(menu.id) do %>
+              <%= link_to hotel_menu_path (menu.id) do %>
                 <%= image_tag menu.get_image(40, 27), class: "mr-2" %>
-                <%= menu.name %>
+                <%= menu.title %>
               <% end %>
             </td>
-            <td><%= number_to_currency(menu.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></td>
             <td class="font-weight-bold">
               <% if menu.is_available %>
                 <p class="text-success">販売中</p>
