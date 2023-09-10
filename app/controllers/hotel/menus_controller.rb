@@ -2,12 +2,13 @@ class Hotel::MenusController < ApplicationController
   before_action :authenticate_hotel!
 
   def new
-    @mene = Menu.new
+    @menu = Menu.new
   end
 
   def create
     @menu = Menu.new(menu_params)
-    if @product.save
+    @menu.hotel_id = current_hotel.id
+    if @menu.save
       redirect_to hotel_menu_path(@menu.id)
       flash[:notice] = "メニューを登録しました"
     else
@@ -41,7 +42,7 @@ class Hotel::MenusController < ApplicationController
 
   private
 
-  def product_params
+  def menu_params
     params.require(:menu).permit(:hotel_id, :title, :price, :detail, :is_available, :image)
   end
 end

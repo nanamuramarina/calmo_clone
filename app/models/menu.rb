@@ -1,16 +1,16 @@
 class Menu < ApplicationRecord
   has_one_attached :image
-  
+
   belongs_to :hotel
-  
+
   has_many :reservations
-  
-  validates :name, presence: true, uniqueness: true
+
+  validates :title, presence: true, uniqueness: true
 
   validates :price,
             :detail,
   presence: true
-  
+
   # 画像呼び出しメソッド
   def get_image(width, height)
     unless image.attached?

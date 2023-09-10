@@ -10,20 +10,20 @@
       <table class="table table-borderless">
         <tr>
           <th>メニュー名</th>
-          <td><%= @product.name %></td>
+          <td><%= @menu.title %></td>
         </tr>
         <tr>
           <th>商品説明</th>
           <td class="details" style="width: 69%;"><%= @menu.detail %></td>
         </tr>
         <tr>
-          <th><%= f.label "税込価格" %></th>
-          <td><%= f.text_field :price, autofocus: true, placeholder: "1000", class: "col-7" %> 円</td>
+          <th>税込価格</th>
+          <td><%= @menu.price %>円</td>
         </tr>
         <tr>
           <th>販売ステータス</th>
           <td class="font-weight-bold">
-            <% if @product.is_available %>
+            <% if @menu.is_available %>
               <p class="text-success">販売中</p>
             <% else %>
               <p class="text-secondary">販売停止中</p>
@@ -34,6 +34,6 @@
     </div>
   </div>
   <div class="row d-flex justify-content-center mt-4">
-    <%= link_to "編集する", edit_hotel_product_path, class: "btn btn-outline-success" %>
+    <%= link_to "編集する", edit_hotel_menu_path, class: "btn btn-outline-success" %>
   </div>
 </div>

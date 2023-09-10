@@ -3,7 +3,7 @@
   <h4 class="font-weight-bold offset-lg-1 mt-3 mb-4">メニュー新規登録</h4>
 
   <div class="my-4 d-flex justify-content-center">
-    <%= form_with model: @menu do |f| %>
+    <%= form_with model: @menu, url:hotel_menus_path do |f| %>
 
       <table class="table table-borderless">
         <tbody>

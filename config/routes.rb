@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   namespace :hotel do
-    resources :menus, only: [:new, :create, :index, :show, :edit, :update,]
+    resources :menus, only: [:new, :create, :index, :show, :edit, :update]
   end
 
 
@@ -49,4 +49,9 @@ Rails.application.routes.draw do
     get "hotels/withdraw" => "hotels#hotel_withdraw", as:"hotel_withdraw"
     patch "/hotels/withdraw" => "hotels#hotel_withdraw"
   end
+
+  # menu do
+  #       get "menu/new"
+  #       post "menu" => "menu#create"
+  #     end
 end
