@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
-  devise_for :admin, controllers: {
+  devise_for :admin, skip: [:registrations, :passwords] , controllers: {
   sessions: "admin/sessions"
 }
 
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   namespace :hotel do
-    resources :products, only: [:new, :create, :index, :show, :edit, :update,]
+    resources :menus, only: [:new, :create, :index, :show, :edit, :update,]
   end
 
 

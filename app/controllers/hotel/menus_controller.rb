@@ -1,40 +1,40 @@
 class Hotel::MenusController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_hotel!
 
   def new
     @mene = Menu.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @menu = Menu.new(menu_params)
     if @product.save
-      redirect_to admin_product_path(@product.id)
-      flash[:notice] = "商品を登録しました"
+      redirect_to hotel_menu_path(@menu.id)
+      flash[:notice] = "メニューを登録しました"
     else
       render :new
-      flash[:alert] = "商品の登録に失敗しました"
+      flash[:alert] = "メニューを登録に失敗しました"
     end
   end
 
   def index
-    @products = Product.page(params[:page])
+    @menu = Menu.all
   end
 
   def show
-    @product = Product.find(params[:id])
+    @menu = Menu.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @menu = Menu.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
-    if @product.update(product_params)
-      flash[:notice] = "商品を編集しました"
+    @menu = Menu.find(params[:id])
+    if @menu.update(menu_params)
+      flash[:notice] = "メニューを編集しました"
       redirect_to admin_product_path(@product.id)
     else
-      flash[:alert] = "商品の編集に失敗しました"
+      flash[:alert] = "メニューの編集に失敗しました"
       render :edit
     end
   end

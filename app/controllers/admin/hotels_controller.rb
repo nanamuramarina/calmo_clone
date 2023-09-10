@@ -1,5 +1,5 @@
 class Admin::HotelsController < ApplicationController
-  before_action :authenticate_hotel!
+  before_action :authenticate_admin!
 
   def index
     @hotels = Hotel.all
@@ -24,7 +24,7 @@ class Admin::HotelsController < ApplicationController
 
   private
 
-  def customer_params
-    params.require(:customer).permit(:name, :post_code, :address, :phone_number, :email, :is_valid)
+  def hotel_params
+    params.require(:hotel).permit(:name, :post_code, :address, :phone_number, :email, :is_valid)
   end
 end

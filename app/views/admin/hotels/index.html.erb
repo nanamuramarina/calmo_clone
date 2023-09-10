@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tdody>
-       <% @hotels.each do |customer| %>
+       <% @hotels.each do |hotel| %>
         <tr>
           <td><%= hotel.id %></td>
           <td><%= link_to hotel.name, admin_hotel_path(hotel) %></td>

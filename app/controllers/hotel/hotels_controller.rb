@@ -31,9 +31,4 @@ class Hotel::HotelsController < ApplicationController
   def hotel_params
     params.require(:hotel).permit(:name, :email, :post_code, :address, :phone_number)
   end
-
-  def set_hotel
-    @hotel = Hotel.find_by(params[:email])
-  end
-
 end
