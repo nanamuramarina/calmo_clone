@@ -33,7 +33,7 @@ class Hotel::MenusController < ApplicationController
     @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
       flash[:notice] = "メニューを編集しました"
-      redirect_to admin_product_path(@product.id)
+      redirect_to hotel_menu_path(@menu.id)
     else
       flash[:alert] = "メニューの編集に失敗しました"
       render :edit
