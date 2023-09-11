@@ -48,10 +48,7 @@ Rails.application.routes.draw do
     get "hotel/confirm_withdraw" => "hotels#confirm_withdraw", as:"hotel_confirm_withdraw"
     get "hotels/withdraw" => "hotels#hotel_withdraw", as:"hotel_withdraw"
     patch "/hotels/withdraw" => "hotels#hotel_withdraw"
+    delete "menus/:id" => "menus#destroy", as:"destroy_menu"
   end
 
-  # menu do
-  #       get "menu/new"
-  #       post "menu" => "menu#create"
-  #     end
 end
