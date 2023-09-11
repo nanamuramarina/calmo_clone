@@ -1,11 +1,28 @@
 class Hotel::ReservationsController < ApplicationController
-  def after_sign_up_path_for(resource)
-     mypage_path
+  before_action :current_hotel?, except: [:index]
+  before_action :set_current_hotel
+
+  def index
+    @reservations = Reservation.where(menu_id: Menu.where(restaurant_id: @current_hotel))
   end
 
-  protected
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :post_code, :address, :email ])
- 
+  def show
+    @reservation = Reservation.find(params[:id])
   end
+
+  def update
+    reservation = Reservation.find(params[:id])
+    if reservation.update(reservation_params)
+      redirect_to public_reservations_path
+    else
+      @reservation = reservation
+      render :show
+    end
+  end
+
+  private
+  def reservation_params
+    params.require(:reservation).permit(:reservation_status)
+  end
+
 end

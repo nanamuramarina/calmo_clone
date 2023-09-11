@@ -1,0 +1,44 @@
+<%= form_for [@menu, @menu.reservations.new] do |f| %>
+  <%= f.hidden_field :menu_id, value: @menu.id %>
+  <div class ="container">
+    <div class="col-md-5">
+      <div class ="form-group">
+      <div class ="input-group date" id="datetimepicker6">
+        <%= f.text_field :start_date, :class => "form-control", placeholder => "宿泊日" %>
+        <span class = "input-group-addon">
+          <span class = "glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+    
+    <div class="col-md-5">
+      <div class ="form-group">
+        <div class ="input-group date" id="datetimepicker7">
+          <%= f.text_field :end_date, :class => "form-control", placeholder => "お帰りの日" %>
+          <span class = "input-group-addon">
+            <span class = "glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit "この日程で予約する", class: "btn btn-danger btn-wide" %>
+
+<% end %>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+</script>
+
+    });

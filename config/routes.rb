@@ -29,7 +29,16 @@ Rails.application.routes.draw do
 
   namespace :hotel do
     resources :menus, only: [:new, :create, :index, :show, :edit, :update]
+    resources :reservations, only: [:index, :show, :update]
   end
+
+  namespace :public do
+    resources :reservations, only: [:index, :show]
+    resources :menus do
+      resources :reservations, only: [:new, :create]
+    end
+  end
+
 
 
   scope module: :public do
@@ -49,6 +58,8 @@ Rails.application.routes.draw do
     get "hotels/withdraw" => "hotels#hotel_withdraw", as:"hotel_withdraw"
     patch "/hotels/withdraw" => "hotels#hotel_withdraw"
     delete "menus/:id" => "menus#destroy", as:"destroy_menu"
+    get 'customer/confirmations' => "customers#confirmations"
+
   end
 
 end

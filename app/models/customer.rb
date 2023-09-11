@@ -4,9 +4,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :addresses, dependent: :destroy
-  has_many :cart_items, dependent: :destroy
-  has_many :orders
+  has_many :reservations, dependent: :destroy
+
 
   validates :last_name,
             :first_name,
@@ -21,6 +20,7 @@ class Customer < ApplicationRecord
   # 郵便番号（ハイフンなし7桁）
   validates :post_code, format: { with: /\A\d{7}\z/ }
 
+  # 会員の名前の結合
   def full_name
      self.last_name + " " + self.first_name
   end
@@ -30,13 +30,14 @@ class Customer < ApplicationRecord
   end
 
   def customer_status
-    if is_valid 
+    if is_valid
       "有効"
     else
       "退会"
     end
   end
 
+  #ゲストログイン
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.last_name = SecureRandom.urlsafe_base64

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_09_131432) do
+ActiveRecord::Schema.define(version: 2023_09_11_064549) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -112,7 +112,14 @@ ActiveRecord::Schema.define(version: 2023_09_09_131432) do
     t.integer "customer_id", null: false
     t.integer "menu_id", null: false
     t.integer "payment_method", null: false
-    t.datetime "date_time", null: false
+    t.integer "start_reservation_year", null: false
+    t.string "start_reservation_month", null: false
+    t.string "start_reservation_day", null: false
+    t.string "start_reservation_time", null: false
+    t.integer "end_reservation_year", null: false
+    t.string "end_reservation_month", null: false
+    t.string "end_reservation_day", null: false
+    t.string "end_reservation_time", null: false
     t.integer "number", null: false
     t.integer "billing_fee", null: false
     t.integer "status", default: 0, null: false
