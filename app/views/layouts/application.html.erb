@@ -134,9 +134,9 @@
             <% end %>
 
            <!--ホテル検索-->
-          <%= search_form_for @q, url: search_cusomer_hotel_path do |f| %>
+          <%= form_with url: search_path, method: :get do |f| %>
             <%= f.label :name_count, 'ホテル名' %>
-            <%= f.search_field :name_count, placeholder: "ホテル名",  %>
+            <%= f.text_field :search_word, placeholder: "ホテル名"  %>
             <%= f.submit '検索' %>
           <% end %>
 

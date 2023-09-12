@@ -28,22 +28,14 @@ Rails.application.routes.draw do
   end
 
   namespace :hotel do
-    resources :menus, only: [:new, :create, :index, :show, :edit, :update]
-    resources :reservations, only: [:index, :show, :update]
+    resources :menus, only: [:new, :create, :index, :show, :edit, :update] do
+      resources :reservations, only: [:index, :show, :edit, :update]
+      end
   end
 
-  namespace :customer do
-    resources :reservations, only: [:index, :show]
-    resources :menu, only: [:index, :show]
-    resources :menus do
-      resources :reservations, only: [:new, :create]
-    end
-    resources :hotel do
-      collection do
-        get "search"
-      end
-    end
-  end
+  
+  
+  get "search" => "searches#search"
 
 
 
@@ -54,6 +46,10 @@ Rails.application.routes.draw do
     get "customer/confirm_withdraw" => "customers#confirm_withdraw", as:"confirm_withdraw"
     get "customers/withdraw" => "customers#withdraw", as:"withdraw"
     patch "/customers/withdraw" => "customers#withdraw"
+    resources :menus do
+      resources :reservations, only: [:new, :create, :show]
+    end
+
   end
 
   scope module: :hotel do

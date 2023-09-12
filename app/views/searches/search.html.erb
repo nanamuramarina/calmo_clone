@@ -3,17 +3,16 @@
   <thead>
     <tr>
       <th>ホテル名</th>
-      <th>メニュー</th>
-      <th>税込価格</th>
+
     </tr>
   </thead>
 
   <tbody>
+    <div><%= @results.count %></div>
     <% @results.each do |result| %>
       <tr>
         <td><%= result.name %></td>
-        <td><%= result.teile %></td>
-        <td><%= result.price %></td>
+
       </tr>
     <% end %>
   </tbody>
