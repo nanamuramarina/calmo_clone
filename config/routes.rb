@@ -32,8 +32,9 @@ Rails.application.routes.draw do
     resources :reservations, only: [:index, :show, :update]
   end
 
-  namespace :public do
+  namespace :customer do
     resources :reservations, only: [:index, :show]
+    resources :menu, only: [:index, :show]
     resources :menus do
       resources :reservations, only: [:new, :create]
     end
