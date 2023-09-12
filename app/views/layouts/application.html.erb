@@ -133,9 +133,13 @@
               </li>
             <% end %>
 
-            <form>
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-            </form>
+           <!--ホテル検索-->
+          <%= search_form_for @q, url: search_cusomer_hotel_path do |f| %>
+            <%= f.label :name_count, 'ホテル名' %>
+            <%= f.search_field :name_count, placeholder: "ホテル名",  %>
+            <%= f.submit '検索' %>
+          <% end %>
+
 
           </ul>
         </div>

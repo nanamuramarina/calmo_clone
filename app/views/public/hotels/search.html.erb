@@ -1,0 +1,22 @@
+<h1>検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ホテル名</th>
+      <th>メニュー</th>
+      <th>税込価格</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotel.each do |hotel| %>
+      <tr>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.teile %></td>
+        <td><%= hotel.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Top', root_path %>

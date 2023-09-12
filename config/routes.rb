@@ -38,6 +38,11 @@ Rails.application.routes.draw do
     resources :menus do
       resources :reservations, only: [:new, :create]
     end
+    resources :hotel do
+      collection do
+        get "search"
+      end
+    end
   end
 
 
