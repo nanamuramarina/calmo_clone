@@ -13,7 +13,10 @@
     <p><%= @reservation.payment_method %></p>
     <h3>内容</h3>
     <%= @menu.detail %>
+    <h3>お支払額</h3>
+    <p><%= @reservation.billing_fee %>円</p>
     <div class="reservation-form">
+
 
     <%= f.hidden_field :menu_id, value: @menu.id %>
     <%= f.hidden_field :payment_method, value: @reservation.payment_method %>
