@@ -1,0 +1,34 @@
+ <div class="container mt-3">
+
+  <h4 class="font-weight-bold"><%= @contact.name %>さんのお問合せ</h4>
+
+  <table class="table table-bordered mt-5">
+    <tr>
+      <th>氏名</th>
+      <td><%= @contact.name %></td>
+    </tr>
+    <tr>
+      <th>返送先メールアドレス</th>
+      <td><%= @contact.mail %></td>
+    </tr>
+    <tr>
+      <th>メッセージ</th>
+      <td><%= @contact.message %></td>
+    </tr>
+    <tr>
+     <%= form_with model: @contact, url: admin_contact_path(@contact), method: :patch do |f| %>
+      <th>
+        <%= f.label "販売ステータス" %>
+      </th>
+      <td>
+        <%= f.radio_button :is_support, true %>
+        <%= f.label :is_support, "解決中", value: true  %>
+        <%= f.radio_button :is_support, false %>
+        <%= f.label :is_support, "解決済み", value: false  %>
+      </td>
+    </tr>
+  </table>
+  <div class="d-flex justify-content-center">
+        <%= f.submit "変更を保存", class: "btn btn-outline-success" %>
+      </div>
+    <% end %>

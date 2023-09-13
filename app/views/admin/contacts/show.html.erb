@@ -1,0 +1,32 @@
+<div class="container mt-3">
+
+  <h4 class="font-weight-bold"><%= @contact.name %>さんのお問合せ</h4>
+
+  <table class="table table-bordered mt-5">
+    <tr>
+      <th>氏名</th>
+      <td><%= @contact.name %></td>
+    </tr>
+    <tr>
+      <th>返送先メールアドレス</th>
+      <td><%= @contact.mail %></td>
+    </tr>
+    <tr>
+      <th>メッセージ</th>
+      <td><%= @contact.message %></td>
+    </tr>
+    <tr>
+      <th>会員ステータス</th>
+      <td class="font-weight-bold">
+      <% if @contact.is_support %>
+        <p class="text-danger">解決中</p>
+      <% else %>
+        <p class="text-success">解決済み</p>
+      <% end %>
+      </td>
+    </tr>
+  </table>
+  <div class="d-flex justify-content-center mt-4">
+    <%= link_to "編集する", edit_admin_contact_path(@contact), class: "btn btn-sm btn-outline-success mr-4" %>
+  </div>
+</div>

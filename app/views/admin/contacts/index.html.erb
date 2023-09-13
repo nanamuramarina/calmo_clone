@@ -1,0 +1,31 @@
+<div class="container mt-3">
+
+  <h3 class="font-weight-bold mb-4">お問合せ一覧</h3>
+
+  <div class="row">
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>返送先メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tdody>
+       <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= link_to contact.name, admin_contact_path(contact) %></td>
+          <td><%= contact.mail %></td>
+          <td class="font-weight-bold">
+            <% if contact.is_support %>
+              <p class="text-danger">解決中</p>
+            <% else %>
+              <p class="text-success">解決済み</p>
+            <% end %>
+          </td>
+        </tr>
+       <% end %>
+       </tdody>
+    </table>
+  </div>
+</div>
