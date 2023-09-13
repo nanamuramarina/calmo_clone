@@ -1,9 +1,10 @@
 class Hotel::HotelsController < ApplicationController
-  before_action :set_hotel, only: [:mypage, :edit, :update, :withdraw]
+  before_action :set_hotel, only: [:hotel_mypage, :edit, :update, :withdraw]
 
   def hotel_mypage
     @hotel = current_hotel
   end
+
 
   def edit
     @hotel = current_hotel
@@ -31,4 +32,7 @@ class Hotel::HotelsController < ApplicationController
   def hotel_params
     params.require(:hotel).permit(:name, :email, :post_code, :address, :phone_number)
   end
+    def set_hotel
+      @hotel = Hotel.find(params[:id])
+    end
 end

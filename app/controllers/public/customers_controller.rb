@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :set_customer, only: [:mypage, :edit, :update, :withdraw]
-  
+
 
   def mypage
     @customer = current_customer
