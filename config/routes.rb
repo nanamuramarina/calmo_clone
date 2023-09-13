@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :customers, only: [ :index, :create, :show, :edit, :update]
     resources :hotels, only: [ :index, :create, :show, :edit, :update]
     resources :contacts, only: [:index, :show, :edit, :update, :destroy]
+    resources :reports, only: [:index, :show, :update]
   end
 
   namespace :hotel do
@@ -53,7 +54,9 @@ Rails.application.routes.draw do
     resources :menus do
       resources :reservations, only: [:new, :create, :show]
     end
-
+    resources :customer, only: [:show, :index] do
+     resources :reports, only: [:new, :create]
+   end
   end
 
   scope module: :hotel do

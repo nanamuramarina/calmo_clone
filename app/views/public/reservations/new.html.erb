@@ -1,6 +1,6 @@
 <div class="contents">
   <h2>予約情報の入力</h2>
-    <%= form_with model: @reservation, url: new_menu_reservation_path(current_customer, @reservation), local: true do |f| %>
+    <%= form_with(model: @reservation,url: reservations_confirm_path) do |f| %>
     <table>
       <tbody>
         <tr>
@@ -11,7 +11,7 @@
         <tr>
           <td><h3>内容</h3></td>
           <td></td>
-          <td><%= @menu.content %></td>
+          <td><%= @menu.detail %></td>
         </tr>
         <tr>
           <td><h3><%= f.label :number, '人数' %></h3></td>
@@ -23,7 +23,7 @@
           <td></td>
         　<!--クレジットカード固定-->
 
-          <% if true %><td><%= f.select :payment_method, Reservation.payment_methods %></td><% end %>
+          <% if true %><td><%= f.select :payment_method, Reservation.payment_methods.keys.map { |k| [t("enum.reservation.payment_method.#{k}"), k] } %></td><% end %>
         </tr>
         <tr>
           <td><h3>ご宿泊日時</h3></td>
@@ -34,24 +34,25 @@
             <%= f.number_field :start_reservation_day, min: 1, max: 31, value: Time.new.day, placeholder: Time.new.day %>日
           </td>
         </tr>
+         <tr>
+          <td></td>
+          <td><h4><%= f.label :start_reservation_time, '時間' %></h4></td>
+          <td><%= f.number_field :start_reservation_time, min: 0, max: 23, value: Time.new.hour + 10, placeholder: Time.new.hour + 10 %>時</td>
+        </tr>
         <tr>
           <td><h3>お帰り日時</h3></td>
           <td><h4>年月日</h4></td>
           <td>
             <%= f.number_field :end_reservation_year, min: Time.new.year, max: Time.new.year + 1, value: Time.new.year, placeholder: Time.new.year %>年
             <%= f.number_field :end_reservation_month, min: 1, max: 12, value: Time.new.month, placeholder: Time.new.month %>月
-            <%= f.number_field :endreservation_day, min: 1, max: 31, value: Time.new.day, placeholder: Time.new.day %>日
+            <%= f.number_field :end_reservation_day, min: 1, max: 31, value: Time.new.day, placeholder: Time.new.day %>日
           </td>
         </tr>
+
         <tr>
           <td></td>
-          <td><h4><%= f.label :start_reservation_time, '日時' %></h4></td>
-          <td><%= f.number_field :start_reservation_time, min: 0, max: 23, value: Time.new.hour + 10, placeholder: Time.new.hour + 10 %>時</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><h4><%= f.label :end_reservation_time, '日時' %></h4></td>
-          <td><%= f.number_field :reservation_time, min: 0, max: 23, value: Time.new.hour + 10, placeholder: Time.new.hour + 10 %>時</td>
+          <td><h4><%= f.label :end_reservation_time, '時間' %></h4></td>
+          <td><%= f.number_field :end_reservation_time, min: 0, max: 23, value: Time.new.hour + 10, placeholder: Time.new.hour + 10 %>時</td>
         </tr>
       </tbody>
     </table>
