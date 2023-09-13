@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     patch "/customers/withdraw" => "customers#withdraw"
     post 'reservations/confirm', to: 'reservations#confirm'
     get 'reservations/completion', to: 'reservations#completion'
+    resources :contacts, only: [:new, :create]
     resources :menus do
       resources :reservations, only: [:new, :create, :show]
     end
