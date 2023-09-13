@@ -1,6 +1,6 @@
 <div class="contents">
   <h2>予約情報の入力</h2>
-    <%= form_with model: @reservation, url: customer_reservations_confirm_path(current_customer, @reservation), local: true do |f| %>
+    <%= form_with model: @reservation, url: new_menu_reservation_path(current_customer, @reservation), local: true do |f| %>
     <table>
       <tbody>
         <tr>
