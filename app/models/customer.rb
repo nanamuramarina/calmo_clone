@@ -6,7 +6,9 @@ class Customer < ApplicationRecord
 
   has_many :reservations, dependent: :destroy
   
-
+  #通報機能
+  has_many :reports, class_name: "Report", foreign_key: "reporter_id", dependent: :destroy
+  has_many :reverse_of_reports, class_name: "Report", foreign_key: "reported_id", dependent: :destroy
 
 
   validates :last_name,

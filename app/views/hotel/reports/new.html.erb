@@ -1,0 +1,8 @@
+<h3>通報</h3>
+
+<%= form_with(model: [@customer, @report], url: new_hotel_customer_report_path(@customer))do |f| %>
+  <div class="form">
+    <%= f.text_area :reason, rows:'3', class:"form-control" %>
+    <%= f.submit "通報する", class: "btn btn-danger" %>
+  </div>
+<% end %>
