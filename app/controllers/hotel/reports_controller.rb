@@ -20,6 +20,6 @@ class Hotel::ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permint(:reason)
+    params.require(:report).permit(:reason)
   end
 end
