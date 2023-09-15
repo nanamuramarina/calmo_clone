@@ -1,1 +1,10 @@
 @use '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@1&display=swap');
+
+.navbar-brand{
+  font-family: 'Inclusive Sans', sans-serif;
+}
+
+.body{
+  background-color: #red;
+}

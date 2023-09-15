@@ -1,9 +1,14 @@
-<div class="contents ">
-  <% url = request.fullpath %>
-  <% if params[:new_reservation_id] %>
-    <h2>ご予約が確定しました！</h2>
-  <% else %>
-    <h2>ご予約は確定済みです！</h2>
-    <p><%#= link_to 'メニュー一覧', menu_path %></p>
-  <% end %>
+<div class="contener mt-5 ">
+  <div class="text-center">
+    <% url = request.fullpath %>
+    <% if params[:new_reservation_id] %>
+      <h2>ご予約が確定しました！</h2>
+    <% else %>
+      <h2>ご予約は確定済みです！</h2>
+    <% end %>
+  </div>
+</div>
+
+<div class="mt-5">
+  <%= link_to 'メニュー一覧', menus_path ,class: "btn btn-outline-primary offset-7" %></p>
 </div>

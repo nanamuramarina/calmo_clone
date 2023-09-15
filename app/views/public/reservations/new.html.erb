@@ -1,33 +1,33 @@
-<div class="contents">
-  <h2>予約情報の入力</h2>
+<div class="contener mt-5">
+  <h2 class="font-weight-bold mb-4 ml-5">予約情報の入力</h2>
     <%= form_with(model: @reservation,url: reservations_confirm_path) do |f| %>
-    <table>
+    <table class="offset-3">
       <tbody>
         <tr>
-          <td><h3>メニュー名</h3></td>
-          <td></td>
+          <td>メニュー名</td>
+
           <td><%= @menu.title %></td>
         </tr>
         <tr>
-          <td><h3>内容</h3></td>
+          <td>内容</td>
           <td></td>
           <td><%= @menu.detail %></td>
         </tr>
         <tr>
-          <td><h3><%= f.label :number, '人数' %></h3></td>
+          <td><%= f.label :number, '人数' %></td>
           <td></td>
           <td><%= f.number_field :number, placeholder: '1', min: 1 %></td>
         </tr>
         <tr>
-          <td><h3><%= f.label :payment_method, 'お支払い方法' %></h3></td>
+          <td><%= f.label :payment_method, 'お支払い方法' %></td>
           <td></td>
         　<!--クレジットカード固定-->
 
           <% if true %><td><%= f.select :payment_method, Reservation.payment_methods.keys.map { |k| [t("enum.reservation.payment_method.#{k}"), k] } %></td><% end %>
         </tr>
         <tr>
-          <td><h3>ご宿泊日時</h3></td>
-          <td><h4>年月日</h4></td>
+          <td>ご宿泊日時</td>
+          <td>年月日</td>
           <td>
             <%= f.number_field :start_reservation_year, min: Time.new.year, max: Time.new.year + 1, value: Time.new.year, placeholder: Time.new.year %>年
             <%= f.number_field :start_reservation_month, min: 1, max: 12, value: Time.new.month, placeholder: Time.new.month %>月
@@ -36,12 +36,12 @@
         </tr>
          <tr>
           <td></td>
-          <td><h4><%= f.label :start_reservation_time, '時間' %></h4></td>
+          <td><%= f.label :start_reservation_time, '時間' %></td>
           <td><%= f.number_field :start_reservation_time, min: 0, max: 23, value: Time.new.hour + 10, placeholder: Time.new.hour + 10 %>時</td>
         </tr>
         <tr>
-          <td><h3>お帰り日時</h3></td>
-          <td><h4>年月日</h4></td>
+          <td>お帰り日時</td>
+          <td>年月日</td>
           <td>
             <%= f.number_field :end_reservation_year, min: Time.new.year, max: Time.new.year + 1, value: Time.new.year, placeholder: Time.new.year %>年
             <%= f.number_field :end_reservation_month, min: 1, max: 12, value: Time.new.month, placeholder: Time.new.month %>月
@@ -51,14 +51,19 @@
 
         <tr>
           <td></td>
-          <td><h4><%= f.label :end_reservation_time, '時間' %></h4></td>
+          <td><%= f.label :end_reservation_time, '時間' %></td>
           <td><%= f.number_field :end_reservation_time, min: 0, max: 23, value: Time.new.hour + 10, placeholder: Time.new.hour + 10 %>時</td>
         </tr>
       </tbody>
     </table>
     <%= f.hidden_field :menu_id, value: @menu.id %>
-    <%= f.submit '確認する', class: "btn btn-success" %>
-  <% end %>
-  <%= link_to 'メニュー詳細へ戻る', menu_path(@menu) %>
-  <%= link_to 'メニュー一覧へ', menus_path %>
+    <div class="offset-6 mt-1">
+       <%= f.submit '確認する', class: "btn btn-outline-success" %>
+    </div>
+    <% end %>
+    <div class="mt-5 offset-8">
+　　 <%= link_to 'メニュー詳細へ', menu_path(@menu), class: "btn btn-outline-primary" %>
+     <%= link_to 'メニュー一覧へ', menus_path, class: "btn btn-outline-primary"%>
+　　</div>
+
 </div>
