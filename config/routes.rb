@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     resources :hotels, only: [ :index, :create, :show, :edit, :update]
     resources :contacts, only: [:index, :show, :edit, :update, :destroy]
     resources :reports, only: [:index, :show, :update]
-    resources :reports, only: [:index, :show, :update]
   end
 
   namespace :hotel do
