@@ -34,8 +34,17 @@ class Public::ReservationsController < ApplicationController
   end
 
   def confirm
+    if !params[:reservation].present?
+      redirect_to menus_path
+      return
+    end
     @reservation = Reservation.new(reservation_params)
     @menu = @reservation.menu
+    unless (@reservation.number.present? && @reservation.number.integer?)
+      render :new
+    end
+    @reservation.billing_fee =  @reservation.number * @menu.price
+
   end
 
   private

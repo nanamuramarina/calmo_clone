@@ -35,6 +35,8 @@ class Reservation < ApplicationRecord
     validates :end_reservation_time
   end
 
+  validates :number, numericality: true
+
    # 予約日時の結合
   def start_reservation_date
     "#{ start_reservation_year } / #{ start_reservation_month } /  #{ start_eservation_day } / #{ start_eservation_time }"

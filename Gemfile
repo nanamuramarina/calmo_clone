@@ -60,3 +60,5 @@ gem 'devise'
 gem 'image_processing', '~> 1.2'
 
 gem "enum_help"
+
+gem 'jquery-rails'
