@@ -1,33 +1,34 @@
-<h3 class="page-title">通報詳細</h3>
-
-<table class="table">
-    <tbody>
-      <tr>
-        <td>通報ID</td>
-        <td><%= link_to @report.id %></td>
-      </tr>
-      <tr>
-        <td>会員名</td>
-        <td><%= @report.customer.name %></td>
-      </tr>
-      <tr>
-        <td>理由</td>
-        <td><%= @report.reason %></td>
-      </tr>
-      <tr>
-        <td>通報者</td>
-        <td><%= @report.hotel.name %></td>
-      </tr>
-      <tr>
-        <td>対応ステータス</td>
-        <td>
-          <%= @report.status_i18n %>
-          <%= form_with model:@report, url:admin_report_path(@report), method: :patch, local: true do |f| %>
-            <%= f.select :status, Report.statuses.keys.map { |k| [t("enums.report.status.#{k}"), k] } %>
-            <%= f.submit '更新' %>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container mt-3">
+  <h3>通報詳細</h3>
+  <div class="row">
+    <table class="table table-sm">
+      <tbody>
+        <tr>
+          <td class="text-center">通報ID</td>
+          <td><%= link_to @report.id %></td>
+        </tr>
+        <tr>
+          <td class="text-center">会員名</td>
+          <td><%= @report.customer.full_name %></td>
+        </tr>
+        <tr>
+          <td class="text-center">理由</td>
+          <td><%= @report.reason %></td>
+        </tr>
+        <tr>
+          <td class="text-center">通報者</td>
+          <td><%= @report.hotel.name %></td>
+        </tr>
+        <tr>
+          <td class="text-center">対応ステータス</td>
+          <td>
+            <%= form_with model:@report, url:admin_report_path(@report), method: :patch, local: true do |f| %>
+              <%= f.select :status, Report.statuses.keys.map { |k| [t("enums.report.status.#{k}"), k] } %>
+              <%= f.submit '更新', class: "btn btn-outline-primary btn-sm" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
