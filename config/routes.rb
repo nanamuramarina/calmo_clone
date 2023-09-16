@@ -30,12 +30,13 @@ Rails.application.routes.draw do
   end
 
   namespace :hotel do
-    resources :menus, only: [:new, :create, :index, :show, :edit, :update] do
+    # resources :menu, only:[:index]
+    resource :menus, only: [:new, :create, :show, :edit, :update] do
       resources :reservations, only: [:index, :show, :edit, :update]
-      end
+    end
     resources :customers, only: [:show, :index] do
-     resources :reports, only: [:new, :create]
-   end
+      resources :reports, only: [:new, :create]
+    end
   end
 
 
@@ -69,6 +70,8 @@ Rails.application.routes.draw do
     patch "/hotels/withdraw" => "hotels#hotel_withdraw"
     delete "menus/:id" => "menus#destroy", as:"destroy_menu"
     get 'customer/confirmations' => "customers#confirmations"
+    get "hotel/menu/" => "menus#index"
+    post 'menus/reservations/:id' => "reservations#update", as: "reservation_update"
   end
 
 end

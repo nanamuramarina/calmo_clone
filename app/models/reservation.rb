@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
   belongs_to :menu
 
   enum payment_method: { 銀行: 0 }
-  enum tatus: { 宿泊予定: 0, 宿泊中: 1, 宿泊済み: 2, キャンセル: 3}
+  enum status: { 宿泊予定: 0, 宿泊中: 1, 宿泊済み: 2, キャンセル: 3}
 
    with_options presence: true do
     validates :start_reservation_month
@@ -39,10 +39,10 @@ class Reservation < ApplicationRecord
 
    # 予約日時の結合
   def start_reservation_date
-    "#{ start_reservation_year } / #{ start_reservation_month } /  #{ start_eservation_day } / #{ start_eservation_time }"
+    "#{ start_reservation_year } / #{ start_reservation_month } /  #{ start_reservation_day } / #{ start_reservation_time }"
   end
 
   def end_reservation_date
-    "#{ end_reservation_year } / #{ end_reservation_month } /  #{ end_eservation_day } / #{ end_eservation_time }"
+    "#{ end_reservation_year } / #{ end_reservation_month } /  #{ end_reservation_day } / #{ end_reservation_time }"
   end
 end

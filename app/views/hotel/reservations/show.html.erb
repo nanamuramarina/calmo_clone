@@ -1,34 +1,46 @@
-<div class="contents">
-  <h2>予約の詳細</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>予約ID</th>
-        <th>予約確定日</th>
-        <th>宿泊予定日</th>
-        <th>お帰り予定日</th>
-        <th>予約者名</th>
-        <th>人数</th>
-        <th>予約メニュー</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @reservation.id %></td>
-        <td><%= @reservation.created_at.to_s(:datetime_jp) %></td>
-        <td><%= @reservation.start_reservation_date %></td>
-        <td><%= @reservation.end_reservation_date %></td>
-        <td><%= @reservation.customer.name %> 様</td>
-        <td><%= @reservation.number %></td>
-        <td><%= @reservation.menu.title %></td>
-      </tr>
-    </tbody>
-  </table>
-  <%= form_with model: @reservation, url: hotel_reservation_path(@reservation), method: :patch, local: true do |f| %>
+<div class="container mt-3">
+  <h4 class="font-weight-bold mb-3 offset-2">予約詳細</h4>
+     <div class="col-lg-6 col-md-9 col-sm-4 offset-3">
+  <table class="table table-border">
+    <tr>
+      <th>予約ID</th>
+      <td><%= @reservation.id %></td>
+    </tr>
+    <tr>
+      <th>予約確定日</th>
+      <td><%= @reservation.created_at.to_s(:datetime_jp) %></td>
+    </tr>
+    <tr>
+      <th>宿泊予定日</th>
+      <td><%= @reservation.start_reservation_date %></td>
+    </tr>
+    <tr>
+      <th>お帰り予定日</th>
+      <td><%= @reservation.end_reservation_date %></td>
+    </tr>
+    <tr>
+      <th>予約者名</th>
+      <td><%= @reservation.customer.full_name %> 様</td>
+    </tr>
+    <tr>
+      <th>人数</th>
+      <td><%= @reservation.number %>人</td>
+    </tr>
+    <tr>
+      <th>予約メニュー</th>
+      <td><%= @reservation.menu.title %></td>
+    </tr>
+
+
+<tr>
+  <%= form_with model: @reservation, url: reservation_update_path(@reservation.id), method: :post, local: true do |f| %>
     <div class="owner-reservations-show--edit-status">
-      <%= f.label :status %>
-      <%= f.select :status, Reservation.reservation_statuses %>
-      <%= f.submit '更新', class: "btn btn-primary" %>
+      <th><%= f.label :status %></th>
+      <td><%= f.select :status, Reservation.statuses, { selected: @reservation.status } %>
+      <%= f.submit '更新', class: "btn btn-outline-primary btn-sm" %></td>
     </div>
   <% end %>
+  </tr>
+  </table>
+</div>
 </div>

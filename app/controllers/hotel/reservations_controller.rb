@@ -1,9 +1,9 @@
 class Hotel::ReservationsController < ApplicationController
-  before_action :current_hotel?, except: [:index]
+  before_action :current_hotel, except: [:index]
   before_action :set_current_hotel
 
   def index
-    @reservations = Reservation.where(menu_id: Menu.where(restaurant_id: @current_hotel))
+    @reservations = Reservation.where(menu_id: Menu.where(hotel_id: current_hotel))
   end
 
   def show
@@ -12,17 +12,24 @@ class Hotel::ReservationsController < ApplicationController
 
   def update
     reservation = Reservation.find(params[:id])
-    if reservation.update(reservation_params)
-      redirect_to public_reservations_path
+    #byebug
+    if reservation.update(status: params[:reservation][:status].to_i)
+      #redirect_to hotel_menus_reservation_path(reservation.id)
+       @reservation = reservation
+      render :show
     else
-      @reservation = reservation
+      #@reservation = reservation
       render :show
     end
   end
 
   private
   def reservation_params
-    params.require(:reservation).permit(:reservation_status)
+    #byebug
+    params.require(:reservation).permit(:status)
+  end
+
+  def set_current_hotel
   end
 
 end

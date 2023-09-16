@@ -2,7 +2,7 @@
 
   <div class="row d-flex justify-content-between">
     <h3 class="font-weight-bold ml-2">メニュー一覧</h3>
-    <%= link_to new_hotel_menu_path do %>
+    <%= link_to new_hotel_menus_path do %>
       <%= button_tag type: "submit", class: "btn btn-outline-secondary btn-lg ml-3" do %>
         <i class="fa-solid fa-square-plus fa-xl" style="color: #640125;"></i>
       <% end %>
@@ -42,5 +42,5 @@
       </tbody>
     </table>
   </div>
-　 <%= link_to "メニューを追加する", new_hotel_menu_path, class: "btn btn-outline-success" %>
+　 <%= link_to "メニューを追加する", new_hotel_menus_path, class: "btn btn-outline-success" %>
 </div>
