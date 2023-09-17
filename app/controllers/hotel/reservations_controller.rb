@@ -10,22 +10,22 @@ class Hotel::ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
+  def edit
+    @reservation = Reservation.find(params[:id])
+  end
+
   def update
     reservation = Reservation.find(params[:id])
-    #byebug
     if reservation.update(status: params[:reservation][:status].to_i)
-      #redirect_to hotel_menus_reservation_path(reservation.id)
        @reservation = reservation
       render :show
     else
-      #@reservation = reservation
-      render :show
+      render :edit
     end
   end
 
   private
   def reservation_params
-    #byebug
     params.require(:reservation).permit(:status)
   end
 

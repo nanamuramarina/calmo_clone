@@ -31,11 +31,15 @@
         <td><%= @reservation.menu.title %></td>
       </tr>
       <tr>
-        <th>ステータス</th>
-        <td>
-          <%= @reservation.status %>
-          <%= link_to "編集", edit_hotel_menus_reservation_path, class: "btn btn-outline-primary btn-sm offset-1" %>
-        </td>
+        <%= form_with model: @reservation, url: hotel_menus_reservation_path(@reservation.id), method: :patch, local: true do |f| %>
+        <div class="owner-reservations-show--edit-status">
+          <th><%= f.label :status %></th>
+          <td>
+            <%= f.select :status, Reservation.statuses, { selected: @reservation.status } %>
+            <%= f.submit '更新', class: "btn btn-outline-primary btn-sm" %>
+          </td>
+        </div>
+        <% end %>
       </tr>
     </table>
   </div>

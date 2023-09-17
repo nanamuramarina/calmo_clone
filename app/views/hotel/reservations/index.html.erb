@@ -1,35 +1,35 @@
 <div class="container mt-3">
-<h3>予約一覧</h3>
-<div class="row">
-  <table class="table table-sm table-hover">
-    <thead>
-      <tr>
-        <th>予約ID</th>
-        <th>ご予約確定日</th>
-        <th>宿泊予定日</th>
-        <th>お帰り予定日</th>
-        <th>予約者名</th>
-        <th>人数</th>
-        <th>予約ステータス</th>
-        <th>メニュー名</th>
-      </tr>
-    </thead>
-      <tbody>
-      <% @reservations.each do |reservation| %>
+  <h3>予約一覧</h3>
+  <div class="row">
+    <table class="table table-sm table-hover">
+      <thead>
         <tr>
-          <td class="text-center">
-            <%= link_to reservation.id,hotel_menus_reservation_path(reservation)%>
-          </td>
-          <td><%= l reservation.created_at %></td>
-          <td><%= reservation.start_reservation_date %></td>
-          <td><%= reservation.end_reservation_date %></td>
-          <td><%= reservation.customer.full_name %> 様</td>
-          <td><%= reservation.number %> 名</td>
-          <td><%= reservation.status %></td>
-          <td><%= reservation.menu.title %></td>
+          <th>予約ID</th>
+          <th>ご予約確定日</th>
+          <th>宿泊予定日</th>
+          <th>お帰り予定日</th>
+          <th>予約者名</th>
+          <th>人数</th>
+          <th>予約ステータス</th>
+          <th>メニュー名</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @reservations.each do |reservation| %>
+          <tr>
+            <td class="text-center">
+              <%= link_to reservation.id, hotel_menus_reservation_path(reservation) %>
+            </td>
+            <td><%= l reservation.created_at %></td>
+            <td><%= reservation.start_reservation_date %></td>
+            <td><%= reservation.end_reservation_date %></td>
+            <td><%= reservation.customer.full_name %> 様</td>
+            <td><%= reservation.number %> 名</td>
+            <td><%= reservation.status %></td>
+            <td><%= reservation.menu.title %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
