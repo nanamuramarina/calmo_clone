@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations, dependent: :destroy
-  
+
   #通報機能
   has_many :reports, class_name: "Report", foreign_key: "reporter_id", dependent: :destroy
   has_many :reverse_of_reports, class_name: "Report", foreign_key: "reported_id", dependent: :destroy
@@ -44,10 +44,10 @@ class Customer < ApplicationRecord
   #ゲストログイン
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
-      customer.last_name = SecureRandom.urlsafe_base64
-      customer.first_name = SecureRandom.urlsafe_base64
-      customer.last_name_kana = SecureRandom.urlsafe_base64
-      customer.first_name_kana = SecureRandom.urlsafe_base64
+      customer.last_name = "ゲスト"
+      customer.first_name = "ログイン"
+      customer.last_name_kana = "ゲスト"
+      customer.first_name_kana = "ログイン"
       customer.phone_number = "0000000000"
       customer.post_code = "0000000"
       customer.address = SecureRandom.urlsafe_base64
