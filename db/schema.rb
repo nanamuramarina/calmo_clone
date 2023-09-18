@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2023_09_12_095849) do
     t.integer "price", null: false
     t.text "detail", null: false
     t.boolean "is_available", default: true, null: false
+    t.float "star"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
