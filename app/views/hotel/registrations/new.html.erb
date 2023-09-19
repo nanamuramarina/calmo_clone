@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <h2 class="font-weight-bold mb-4">新規ホテル登録</h2>
+  <h3 class="font-weight-bold mb-4">新規ホテル登録</h3>
 
   <%= form_with model: @hotel, url: hotel_registration_path, method: :post do |f| %>
     <%= render "hotel/shared/error_messages", resource: resource %>
@@ -44,11 +44,6 @@
       <div class="row">
         <div class="mx-3">
           <%= f.submit "新規登録", class: "btn btn-outline-success"%>
-        </div>
-        <div class="row mx-2">
-          <p>既に登録済みの方</p>
-          <p><%= render "hotel/shared/links"%></p>
-          <p>からログインしてください</p>
         </div>
       </div>
     </div>

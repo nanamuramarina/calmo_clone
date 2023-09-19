@@ -1,4 +1,4 @@
-<h3 class="offset-md-4 mt-4">会員ログイン</h3>
+<h3 class="font-weight-bold offset-md-4 mt-5">会員ログイン</h3>
 
 <div class="mt-5 mb-3">
   <%= form_with model: @customer, url: customer_session_path do |f| %>
@@ -16,6 +16,6 @@
       <%= f.submit "Log in",class: "btn btn-outline-success btn-sm" %>
     </div>
   <% end %>
-  <div class="row offset-7" >
+  <div class="row offset-5 mt-3" >
    <%= render "public/shared/links" %>
 </div>
