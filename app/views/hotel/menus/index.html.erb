@@ -24,7 +24,7 @@
           <tr>
             <td><%= menu.id %></td>
             <td class="row">
-              <%= link_to hotel_menu_path (menu.id) do %>
+              <%= link_to hotel_menus_path (menu.id) do %>
                 <%= image_tag menu.get_image(40, 27), class: "mr-2" %>
                 <%= menu.title %>
               <% end %>
