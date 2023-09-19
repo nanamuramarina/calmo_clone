@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :create]
     resources :menus do
       resources :reservations, only: [:new, :create, :show]
+    resources :hotels, only: [:show]
     end
   end
 
