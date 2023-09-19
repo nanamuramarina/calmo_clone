@@ -9,19 +9,24 @@ class Public::MenusController < ApplicationController
 
   def edit
     @customer = current_customer
+     @menu = Menu.find(params[:id])
   end
 
   def update
-   if current_customer.update(menu_params)
-     redirect_to menu_path
-   else
-     render edit
-   end
+    menu = Menu.find(params[:id])
+    if menu.update(menu_params)
+      @menu = menu
+      flash[:notice] = "評価ができました"
+      render :show
+    else
+      flash[:alert] = "エラーが発生しました"
+      render :edit
+    end
   end
 
   private
 
-  def book_params
-    params.require(:book).permit(:title, :body, :image, :star)
+  def menu_params
+    params.require(:menu).permit(:star)
   end
 end

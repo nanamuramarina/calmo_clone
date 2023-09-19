@@ -2,7 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :customer
   belongs_to :menu
 
-  enum payment_method: { 銀行: 0 }
+  enum payment_method: { クレジットカード: 0 }
   enum status: { 宿泊予定: 0, 宿泊中: 1, 宿泊済み: 2, キャンセル: 3}
 
    with_options presence: true do

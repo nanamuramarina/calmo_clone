@@ -1,4 +1,46 @@
-<div id="stars">
+<div class="container mt-3">
+  <h4 class="font-weight-bold mb-5">メニュー詳細</h4>
+  <div class="row">
+    <div class="col-lg-5 mt-2 mb-4">
+      <%= image_tag @menu.get_image(360, 270) %>
+    </div>
+    <div class="col-lg-6 col-md-9 col-sm-4">
+      <table class="table table-borderless">
+        <tr>
+          <th>メニュー名</th>
+          <td><%= @menu.title %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td class="details" style="width: 69%;"><%= @menu.detail %></td>
+        </tr>
+        <tr>
+          <th>税込価格</th>
+          <td><%= @menu.price %>円</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td class="font-weight-bold">
+            <% if @menu.is_available %>
+              <p class="text-success">販売中</p>
+            <% else %>
+              <p class="text-secondary">販売停止中</p>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>ホテル名</th>
+          <td><%= @menu.hotel.name %></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= form_with model: @menu, url: menu_path(@menu.id), method: :patch, local: true do |f| %>
+<div class="offset-6">
+  <div id="stars">
 <label>Rate</label>
 </div>
 
@@ -8,7 +50,12 @@
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
     starHalf: "<%= asset_path('star-half.png') %>",
-    scoreName: 'book[star]' 
+    scoreName: 'menu[star]'
   };
   window.raty(elem, opt);
 </script>
+
+<%= f.submit '更新', class: "btn btn-outline-primary btn-sm offset-4" %>
+<% end %>
+</div>
+
