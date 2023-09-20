@@ -4,4 +4,3 @@ class Admin::SearchesController < ApplicationController
     @results = Customer.where("full_name LIKE ?", "%#{@search_word}%")
   end
 end
-らいlss

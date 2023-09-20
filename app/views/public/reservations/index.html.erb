@@ -15,13 +15,13 @@
       <% reservation_count = 0 %>
       <% @reservations.each do |reservation| %>
         <tr>
-          <td><%= link_to reservation.id, customer_reservation_path(current_customer, reservation), class: "reservation#{ start_reservation_count }--show_path" %></td>
+          <td><%= link_to reservation.id, customer_reservation_path(current_customer, reservation), class: "reservation#{ start_reservation_count }" %></td>
           <td><%= "#{reservation.start_reservation_year}年 #{reservation.start_reservation_month}月 #{reservation.start_reservation_day}日" %></td>
-          <td><%= link_to reservation.id, customer_reservation_path(current_customer, reservation), class: "reservation#{ end_reservation_count }--show_path" %></td>
+          <td><%= link_to reservation.id, customer_reservation_path(current_customer, reservation), class: "reservation#{ end_reservation_count }" %></td>
           <td><%= "#{reservation.end_reservation_year}年 #{reservation.end_reservation_month}月 #{reservation.reservation_day}日" %></td>
-          <td><%= link_to reservation.menu.hotel.name, restaurant_path(reservation.menu.restaurant), class: "reservation#{ end_reservation_count }--hotel-name" %></td>
+          <td><%= link_to reservation.menu.hotel.name, restaurant_path(reservation.menu.restaurant), class: "reservation#{ end_reservation_count }" %></td>
           <td><%= reservation.people %> 名</td>
-          <td><%= link_to reservation.menu.title, menu_path(reservation.menu), class: "reservation#{ reservation_count }--menu-title" %></td>
+          <td><%= link_to reservation.menu.title, menu_path(reservation.menu), class: "reservation#{ reservation_count }" %></td>
         </tr>
         <% reservation_count += 1 %>
       <% end %>

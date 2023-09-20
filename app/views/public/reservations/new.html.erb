@@ -5,7 +5,7 @@
       <tbody>
         <tr>
           <td>メニュー名</td>
-
+         
           <td><%= @menu.title %></td>
         </tr>
         <tr>
@@ -21,7 +21,6 @@
         <tr>
           <td><%= f.label :payment_method, 'お支払い方法' %></td>
           <td></td>
-        　<!--クレジットカード固定-->
 
           <% if true %><td><%= f.select :payment_method, Reservation.payment_methods.keys.map { |k| [t("enum.reservation.payment_method.#{k}"), k] } %></td><% end %>
         </tr>

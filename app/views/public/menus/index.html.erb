@@ -3,11 +3,7 @@
     <div class="col-md-3">
       <%= link_to menu_path(menu.id), style: "color:#0f2350;" do %>
         <div class="card mb-3">
-          <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/></svg>-->
-          <img src="<%#= menu.get_image(40, 27) %>" class="card-img-top">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-            <image width="100%" height="100%" xlink:href="<%= menu.get_image(40, 27) %>" alt="Menu Image" />
-          </svg>
+          <%= image_tag menu.get_image(400, 250) %>
           <div class="card-body">
             <h5 class="card-title">
               <%= menu.title %>
