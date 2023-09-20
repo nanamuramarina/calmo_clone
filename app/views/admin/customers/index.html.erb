@@ -1,8 +1,8 @@
 <div class="container mt-3">
   <div class="mb-3 offset-4">
-    <%= form_with url:  _path, method: :get do |f| %>
+    <%= form_with url:  admin_admin_search_path, method: :get do |f| %>
       <%= f.text_field :search_word, placeholder: "ユーザー名"  %>
-      <%= f.submit '検索',class: "btn btn-secondary btn-sm" %>
+      <%= f.submit '検索',class: "btn btn-outline-secondary btn-sm" %>
     <% end %>
   </div>
 
