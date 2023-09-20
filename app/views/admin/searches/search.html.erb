@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <div class="row d-flex justify-content-between">
+    <h3 class="font-weight-bold ml-2">検索結果</h3>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>会員名</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div><%= @results.count %>件</div>
+      <% @results.each do |result| %>
+        <tr>
+          <td>
+            <%#= link_to searches_index_path(hotel_id: @hotel.id) do %>
+              <%= result.full_name %>
+            <%# end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :hotels, only: [ :index, :create, :show, :edit, :update]
     resources :contacts, only: [:index, :show, :edit, :update, :destroy]
     resources :reports, only: [:index, :show, :update]
+    get 'search', to: 'searches#search', as: 'admin_search'
   end
 
   namespace :hotel do
