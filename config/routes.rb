@@ -38,11 +38,7 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   get "search" => "searches#search"
-
-
 
   scope module: :public do
     get "customer/mypage" => "customers#mypage", as:"mypage"
@@ -54,10 +50,10 @@ Rails.application.routes.draw do
     post 'reservations/confirm', to: 'reservations#confirm'
     get 'reservations/confirm', to: 'reservations#confirm'
     get 'reservations/completion', to: 'reservations#completion'
+    get "/hotels/:hotel_id/menus", to: "searches#index", as:"searches_index"
     resources :contacts, only: [:new, :create]
     resources :menus do
       resources :reservations, only: [:new, :create, :show]
-    resources :hotels, only: [:show]
     end
   end
 
