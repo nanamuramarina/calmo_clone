@@ -3,7 +3,6 @@
   <table>
     <thead>
       <tr>
-        <th>予約番号</th>
         <th>宿泊予定日</th>
         <th>お帰り予定日</th>
         <th>ホテル名</th>
@@ -15,12 +14,10 @@
       <% reservation_count = 0 %>
       <% @reservations.each do |reservation| %>
         <tr>
-          <td><%= link_to reservation.id, customer_reservation_path(current_customer, reservation), class: "reservation#{ start_reservation_count }" %></td>
-          <td><%= "#{reservation.start_reservation_year}年 #{reservation.start_reservation_month}月 #{reservation.start_reservation_day}日" %></td>
-          <td><%= link_to reservation.id, customer_reservation_path(current_customer, reservation), class: "reservation#{ end_reservation_count }" %></td>
-          <td><%= "#{reservation.end_reservation_year}年 #{reservation.end_reservation_month}月 #{reservation.reservation_day}日" %></td>
+          <td><%= "#{reservation.start_reservation_date}" %></td>
+          <td><%= "#{reservation.end_reservation_date}" %></td>
           <td><%= link_to reservation.menu.hotel.name, restaurant_path(reservation.menu.restaurant), class: "reservation#{ end_reservation_count }" %></td>
-          <td><%= reservation.people %> 名</td>
+          <td><%= reservation.number %> 名</td>
           <td><%= link_to reservation.menu.title, menu_path(reservation.menu), class: "reservation#{ reservation_count }" %></td>
         </tr>
         <% reservation_count += 1 %>

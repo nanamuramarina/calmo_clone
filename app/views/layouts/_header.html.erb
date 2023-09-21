@@ -31,7 +31,12 @@
               <% end %>
             </li>
             <li>
-              <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
+              <%= link_to reservations_index_path, class: "nav-link text-light" do %>
+                <i style="color: white"></i>予約履歴
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
                 <i style="color: white"></i>ログアウト
               <% end %>
             </li>

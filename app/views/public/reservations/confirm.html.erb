@@ -9,11 +9,11 @@
         </tr>
         <tr>
           <td>ご予約日時</td>
-          <td><%= "#{ @reservation.start_reservation_year }年 #{ @reservation.start_reservation_month }月 #{ @reservation.start_reservation_day }日 #{ @reservation.start_reservation_time }:00" %></td>
+          <td><%= "#{ @reservation.start_reservation_date} #{ @reservation.start_reservation_time }:00" %></td>
         </tr>
         <tr>
           <td>お帰り日時</td>
-          <td><%= "#{ @reservation.end_reservation_year }年 #{ @reservation.end_reservation_month }月 #{ @reservation.end_reservation_day }日 #{ @reservation.end_reservation_time }:00" %></td>
+          <td><%= "#{ @reservation.end_reservation_date}#{ @reservation.end_reservation_time }:00" %></td>
         </tr>
         <tr>
           <td>人数</td>
@@ -38,13 +38,9 @@
       <%= f.hidden_field:menu_id, value: @menu.id %>
       <%= f.hidden_field :payment_method, value: @reservation.payment_method %>
       <%= f.hidden_field :number, value: @reservation.number %>
-      <%= f.hidden_field :start_reservation_year, value: @reservation.start_reservation_year %>
-      <%= f.hidden_field :start_reservation_month, value: @reservation.start_reservation_month %>
-      <%= f.hidden_field :start_reservation_day, value: @reservation.start_reservation_day %>
+      <%= f.hidden_field :start_reservation_date, value: @reservation.start_reservation_date %>
       <%= f.hidden_field :start_reservation_time, value: @reservation.start_reservation_time %>
-      <%= f.hidden_field :end_reservation_year, value: @reservation.end_reservation_year %>
-      <%= f.hidden_field :end_reservation_month, value: @reservation.end_reservation_month %>
-      <%= f.hidden_field :end_reservation_day, value: @reservation.end_reservation_day %>
+      <%= f.hidden_field :end_reservation_date, value: @reservation.end_reservation_date %>
       <%= f.hidden_field :end_reservation_time, value: @reservation.end_reservation_time %>
       <%= f.hidden_field :billing_fee, value: @reservation.billing_fee %>
       <div class="mt-3">
