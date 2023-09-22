@@ -23,6 +23,7 @@ class Public::ReservationsController < ApplicationController
       redirect_to reservations_completion_path
     else
       render :confirm
+      
     end
   end
 

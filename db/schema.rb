@@ -122,9 +122,9 @@ ActiveRecord::Schema.define(version: 2023_09_12_095849) do
     t.integer "customer_id", null: false
     t.integer "menu_id", null: false
     t.integer "payment_method", null: false
-    t.integer "start_reservation_date", null: false
+    t.date "start_reservation_date", null: false
     t.string "start_reservation_time", null: false
-    t.integer "end_reservation_date", null: false
+    t.date "end_reservation_date", null: false
     t.string "end_reservation_time", null: false
     t.integer "number", null: false
     t.integer "billing_fee", null: false
