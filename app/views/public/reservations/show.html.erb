@@ -1,78 +1,35 @@
-<div class="contents">
-  <h2>ご予約の詳細</h2>
-  <table>
-    <tbody>
+<div class="container mt-3">
+  <h4 class="font-weight-bold mb-3 offset-2">予約詳細</h4>
+  <div class="col-lg-6 col-md-9 col-sm-4 offset-3">
+    <table class="table table-border">
       <tr>
-        <td><h3>予約完了日</h3></td>
-        <td></td>
-        <td><p><%= @reservation.created_at.to_s(:datetime_jp) %></p></td>
+        <th>予約ID</th>
+        <td><%= @reservation.id %></td>
       </tr>
       <tr>
-        <td><h3>ご宿泊予定日</h3></td>
-        <td><h4>ご予約日</h4></td>
-        <td><p><%= "#{@start_reservation.start_reservation_year}年 #{@start_reservation.start_reservation_month}月 #{@start_reservation.start_reservation_day}日" %></p></td>
+        <th>予約確定日</th>
+        <td><%= @reservation.created_at.to_s(:datetime_jp) %></td>
       </tr>
       <tr>
-        <td></td>
-        <td><h4>ご予約時間帯</h4></td>
-        <td><p><%= @start_reservation.start_reservation_time %>:00</p></td>
+        <th>宿泊予定日</th>
+        <td><%= @reservation.start_reservation_date %></td>
       </tr>
       <tr>
-        <td><h3>お帰り予定日</h3></td>
-        <td><h4>ご予約日</h4></td>
-        <td><p><%= "#{@end_reservation.end_reservation_year}年 #{@end_reservation.end_reservation_month}月 #{@end_reservation.end_reservation_day}日" %></p></td>
+        <th>お帰り予定日</th>
+        <td><%= @reservation.end_reservation_date %></td>
       </tr>
       <tr>
-        <td></td>
-        <td><h4>ご予約時間帯</h4></td>
-        <td><p><%= @end_reservation.end_reservation_time %>:00</p></td>
+        <th>予約者名</th>
+        <td><%= @reservation.customer.full_name %> 様</td>
       </tr>
       <tr>
-        <td><h3>ホテル名</h3></td>
-        <td></td>
-        <td><p><%= link_to hotel.name, hotel_path(@hotel) %></p></td>
+        <th>人数</th>
+        <td><%= @reservation.number %>人</td>
       </tr>
       <tr>
-        <td><h3>メニュー</h3></td>
-        <td></td>
-        <td><p><%= link_to @menu.title, menu_path(@menu) %></p></td>
+        <th>予約メニュー</th>
+        <td><%= @reservation.menu.title %></td>
       </tr>
-      <tr>
-        <td><h3>予約者氏名</h3></td>
-        <td></td>
-        <td><p><%= @customer.name %> 様</p></td>
-      </tr>
-      <tr>
-        <td><h3>人数</h3></td>
-        <td></td>
-        <td><p><%= @reservation.number %> 名様</p></td>
-      </tr>
-      <tr>
-        <td><h3>ご連絡先</h3></td>
-        <td><h4>電話番号</h4></td>
-        <td><p><%= @customer.phone_number %></p></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><h3>メールアドレス</h3></td>
-        <td><p><%= @customer.email %></p></td>
-      </tr>
-      <tr>
-        <td><h3>お支払い方法</h3></td>
-        <td></td>
-        <td><p><%= @reservation.payment_method %></p></td>
-      </tr>
-      <tr>
-        <td><h3>店舗からのお知らせ</h3></td>
-        <td></td>
-        <td><p><%= @restaurant.completion_message %></p></td>
-      </tr>
-      <tr>
-        <td><h3>ご予約のキャンセルについて</h3></td>
-        <td></td>
-        <td><p><%= @menu.cancel %></p></td>
-      </tr>
-    </tbody>
-  </table>
-  <%= link_to 'マイページへ戻る', mypage_path %>
+    </table>
+  </div>
 </div>

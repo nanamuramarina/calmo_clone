@@ -1,5 +1,4 @@
 class Public::ReservationsController < ApplicationController
-
   before_action :authenticate_customer!
 
   def index
@@ -8,9 +7,7 @@ class Public::ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
-    @menu = @reservation.menu
-    @hotel = @reservation.menu.hotel
-    @customer = @reservation.customer
+
   end
 
   def new
@@ -36,21 +33,20 @@ class Public::ReservationsController < ApplicationController
     end
     @reservation = Reservation.new(reservation_params)
     @menu = @reservation.menu
-     if @reservation.number.blank?
+    if @reservation.number.blank?
       render :new
     else
-      @reservation.billing_fee =  @reservation.number * @menu.price
+      @reservation.billing_fee = @reservation.number * @menu.price
     end
-
   end
-
 
   private
+
   def reservation_params
     params.require(:reservation).permit(
-      :menu_id, :number, :payment_method,:billing_fee,
+      :menu_id, :number, :payment_method, :billing_fee,
       :start_reservation_date, :start_reservation_time,
-      :end_reservation_date, :end_reservation_time)
+      :end_reservation_date, :end_reservation_time
+    )
   end
-
 end

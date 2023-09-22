@@ -52,10 +52,11 @@ Rails.application.routes.draw do
     get 'reservations/confirm', to: 'reservations#confirm'
     get 'reservations/completion', to: 'reservations#completion'
     get 'reservations/index', to: 'reservations#index'
+    get 'reservations/show', to: 'reservations#show'
     get "/hotels/:hotel_id/menus", to: "searches#index", as:"searches_index"
     resources :contacts, only: [:new, :create]
     resources :menus do
-      resources :reservations, only: [:new, :create, :show]
+      resources :reservations, only: [:new, :create]
     end
   end
 

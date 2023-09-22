@@ -1,27 +1,25 @@
-<div class="contents">
-  <h2>予約履歴</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>宿泊予定日</th>
-        <th>お帰り予定日</th>
-        <th>ホテル名</th>
-        <th>人数</th>
-        <th>メニュー</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% reservation_count = 0 %>
-      <% @reservations.each do |reservation| %>
+  <h3 class="font-weight-bold mb-4">予約履歴</h3>
+
+  <div class="row">
+    <table class="table table-sm table-hove table-small">
+      <thead>
         <tr>
-          <td><%= "#{reservation.start_reservation_date}" %></td>
-          <td><%= "#{reservation.end_reservation_date}" %></td>
-          <td><%= link_to reservation.menu.hotel.name, restaurant_path(reservation.menu.restaurant), class: "reservation#{ end_reservation_count }" %></td>
-          <td><%= reservation.number %> 名</td>
-          <td><%= link_to reservation.menu.title, menu_path(reservation.menu), class: "reservation#{ reservation_count }" %></td>
+          <th>宿泊予定日</th>
+          <th>お帰り予定日</th>
+          <th>ホテル名</th>
         </tr>
-        <% reservation_count += 1 %>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tdody>
+       <% @reservations.each do |reservation| %>
+        <tr>
+          <td><%= reservation.start_reservation_date %></td>
+    <td><%= reservation.end_reservation_date %></td>
+    <td><%= link_to reservation.menu.hotel.name, reservations_show_path(reservation) %></td>
+        </tr>
+       <% end %>
+       </tdody>
+    </table>
+  </div>
 </div>
+
+
