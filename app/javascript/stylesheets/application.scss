@@ -32,6 +32,10 @@
   margin: 0 auto;
 }
 
+.new {
+  padding: 30px;
+}
+
 .btn-outline-secondary {
   color: #9ea1a3;
   background-image: none;
@@ -130,4 +134,10 @@
 .btn-outline-danger.disabled, .btn-outline-danger:disabled {
   color: #ec6d71;
   background-color: #ec6d71;
+}
+
+@media (max-width:767px) {
+    .show-image{
+        margin: 5px;
+    }
 }

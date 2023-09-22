@@ -1,40 +1,24 @@
-<div class="container mt-3">
-
-  <div class="row d-flex justify-content-between">
-    <h3 class="font-weight-bold ml-2">メニュー一覧</h3>
-  </div>
-
-  <div class="row mt-3">
-    <table class="table table-hover table-sm">
-      <thead>
-        <tr>
-          <th>メニューID</th>
-          <th>メニュー名</th>
-          <th>税込価格</th>
-          <th>ステータス</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @menus.each do |menu| %>
-          <tr>
-            <td><%= menu.id %></td>
-            <td class="row">
-              <%= link_to menu_path (menu.id) do %>
-                <%= image_tag menu.get_image(40, 27), class: "mr-2" %>
-                <%= menu.title %>
-              <% end %>
-            </td>
-             <td><%= menu.price %>円</td>
-            <td class="font-weight-bold">
+<div class="row m-3">
+  <% @menus.each do |menu| %>
+    <div class="col-md-3">
+      <%= link_to menu_path(menu.id), style: "color:#0f2350;" do %>
+        <div class="card mb-3">
+          <%= image_tag menu.get_image(400, 250) %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= menu.title %>
+            </h5>
+            <p class="card-text"><%= menu.price %>円</p>
+            <p class="font-weight-bold">
               <% if menu.is_available %>
-                <p class="text-success">販売中</p>
+                <span class="text-success">販売中</span>
               <% else %>
-                <p class="text-danger">販売停止中</p>
+                <span class="text-danger">販売停止中</span>
               <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

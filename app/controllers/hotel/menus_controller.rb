@@ -18,11 +18,11 @@ class Hotel::MenusController < ApplicationController
   end
 
   def index
-    @menu = Menu.all
+    @menus = Menu.where(hotel_id: current_hotel.id)
   end
 
   def show
-    @menu = Menu.find(params[:id])
+    @menu = Menu.find_by(id: params[:id])
   end
 
   def edit

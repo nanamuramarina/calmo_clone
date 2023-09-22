@@ -1,9 +1,10 @@
 <div class="container mt-2 mb-5">
-
   <h2 class="font-weight-bold mb-3">新規会員登録</h2>
 
   <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
+
+    <%= render "public/shared/error_messages", resource: @customer %>
+
     <div class="row mb-3 mt-4">
       <%= f.label "氏名", class: "col-md-2 col-sm-3"%>
       <%= f.label :last_name, "(姓)", class: "col-lg-1 col-md-3 col-sm-4 mb-3" %>
@@ -22,7 +23,7 @@
 
     <div class="row mb-3">
       <%= f.label :post_code, "郵便番号", class: "col-md-3 col-sm-3 mb-3" %>
-      <%= f.text_field :post_code, placeholder: "0000000", autofocus: true, autocomplete: "post_code", class: "col-lg-3 col-md-3 mx-2" %>
+      <%= f.text_field :post_code, placeholder: "0000000", autofocus: true, autocomplete: "post_code", class: "col-lg-3 col-md-3 col-md-3 mx-2" %>
     </div>
 
     <div class="row mb-3">

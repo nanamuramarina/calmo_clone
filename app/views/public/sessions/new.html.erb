@@ -1,21 +1,23 @@
-<h3 class="font-weight-bold offset-md-4 mt-5">会員ログイン</h3>
+<div class="container mt-2 mb-5">
+  <h3 class="font-weight-bold offset-md-4 mt-5">会員ログイン</h3>
 
-<div class="mt-5 mb-3">
-  <%= form_with model: @customer, url: customer_session_path do |f| %>
-    <div class="row offset-md-4 mb-1">
-    　<%= f.label :email, "メールアドレス", class:"mr-3" %>
-    　<%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@mail" %>
-  　</div>
+  <div class="mt-5 mb-3">
+    <%= form_with model: @customer, url: customer_session_path do |f| %>
+      <div class="row offset-md-4 mb-1">
+      　<%= f.label :email, "メールアドレス", class:"mr-3" %>
+      　<%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@mail" %>
+    　</div>
 
-  　<div class="row offset-md-4 mb-3">
-    　<%= f.label :passwordd,"パスワード", class:"mr-5" %>
-    　<%= f.password_field :password, autocomplete: "current-password" %>
-  　</div>
+    　<div class="row offset-md-4 mb-3">
+      　<%= f.label :passwordd,"パスワード", class:"mr-5" %>
+      　<%= f.password_field :password, autocomplete: "current-password" %>
+    　</div>
 
-    <div class="row offset-7" >
-      <%= f.submit "Log in",class: "btn btn-outline-primary btn-sm" %>
-    </div>
-  <% end %>
-  <div class="row offset-5 mt-3" >
-   <%= render "public/shared/links" %>
+      <div class="row offset-7" >
+        <%= f.submit "Log in",class: "btn btn-outline-primary btn-sm" %>
+      </div>
+    <% end %>
+    <div class="row offset-5 mt-3" >
+     <%= render "public/shared/links" %>
+  </div>
 </div>

@@ -34,7 +34,9 @@ class Public::ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @menu = @reservation.menu
     if @reservation.number.blank?
+      flash[:alert] = "人数が入力されていません"
       render :new
+
     else
       @reservation.billing_fee = @reservation.number * @menu.price
     end
