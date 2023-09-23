@@ -22,7 +22,7 @@ class Hotel::MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find_by(id: params[:id])
+    @menu = Menu.find_by(params[:id])
   end
 
   def edit
@@ -41,8 +41,8 @@ class Hotel::MenusController < ApplicationController
   end
 
   def destroy
-    menu = Menu.find(params[:id])
-    menu.destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
     redirect_to root_path
   end
 

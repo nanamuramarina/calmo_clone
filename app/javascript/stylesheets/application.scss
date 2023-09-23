@@ -5,6 +5,18 @@
   font-family: 'Inclusive Sans', sans-serif;
 }
 
+header, footer {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,152,35,1) 0%, rgba(0,255,222,1) 100%, rgba(7,139,103,1) 100%, rgba(9,121,43,1) 100%);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+
 .image-container {
   position: relative;
 }

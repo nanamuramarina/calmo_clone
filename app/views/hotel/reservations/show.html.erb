@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <th>予約者名</th>
-        <td><%= @reservation.customer.full_name %> 様</td>
+        <td><%= link_to @reservation.customer.full_name, hotel_customer_path(@reservation.customer) %> 様</td>
       </tr>
       <tr>
         <th>人数</th>

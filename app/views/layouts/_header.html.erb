@@ -1,126 +1,117 @@
 <header>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <%= link_to root_path, data: { "turbolinks" => false }, style: "color: white;", class: "navbar-brand" do %>
+      <img class="text_light">calmo<i class="fa-solid fa-leaf" style="color: white"></i>
+    <% end %>
 
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#00a497;">
-      <%= link_to root_path, data:{"turbolinks" => false}, style: "color: white;", class: "navbar-brand" do %>
-        <img class="text_light">calmo<i class="fa-solid fa-leaf" <i style="color: white"></i>
-      <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <div class="text-light">
+        <% if customer_signed_in? %>
+          <%= current_customer.full_name %> 様ようこそ！
+        <% elsif hotel_signed_in? %>
+          <%= current_hotel.name %>
+        <% end %>
+      </div>
+    </div>
 
-      <% if customer_signed_in? %>
-        <div class="collapse navbar-collapse justify-content-center">
-          <div class="text-light">
-            <%= current_customer.full_name %> 様ようこそ！
-          </div>
-        </div>
-      <% end %>
-
-      <div class="collapse navbar-collapse" id="navbarNav4">
-        <ul class="navbar-nav ml-auto">
-          <% if customer_signed_in? %>
-            <li>
-              <%= link_to mypage_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>マイページ
-              <% end %>
-            </li>
-            <li>
-              <%= link_to menus_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>メニュー一覧
-              <% end %>
-            </li>
-            <li>
-              <%= link_to reservations_index_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>予約履歴
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
-                <i style="color: white"></i>ログアウト
-              <% end %>
-            </li>
+    <div class="collapse navbar-collapse" id="navbarNav4">
+      <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+          <li>
+            <%= link_to mypage_path, class: "nav-link text-light" do %>
+              マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to menus_path, class: "nav-link text-light" do %>
+              メニュー一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to reservations_index_path, class: "nav-link text-light" do %>
+              予約履歴
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
+              ログアウト
+            <% end %>
+          </li>
           <% elsif admin_signed_in? %>
             <li>
               <%= link_to admin_customers_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>会員一覧
+                会員一覧
               <% end %>
             </li>
             <li>
               <%= link_to admin_hotels_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>ホテル一覧
+               ホテル一覧
               <% end %>
             </li>
             <li>
-              <%= link_to admin_contacts_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>お問合せ
-              <% end %>
+            <%= link_to admin_contacts_path, class: "nav-link text-light" do %>
+              お問合せ
+            <% end %>
             </li>
             <li>
               <%= link_to admin_reports_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>通報一覧
+                通報一覧
               <% end %>
             </li>
             <li>
               <%= link_to  destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
-                <i style="color: white"></i>ログアウト
+                ログアウト
               <% end %>
             </li>
           <% elsif hotel_signed_in? %>
             <li>
               <%= link_to hotel_mypage_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>マイページ
+                 マイページ
               <% end %>
             </li>
             <li>
-              <%= link_to hotel_menu_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>メニュー一覧
+              <%= link_to hotel_menus_path, class: "nav-link text-light" do %>
+               メニュー一覧
               <% end %>
             </li>
             <li>
-              <%= link_to hotel_customers_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>会員一覧
-              <% end %>
-            </li>
-            <li>
-              <%= link_to hotel_menus_reservations_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>注文一覧
-              <% end %>
-            </li>
-            <li>
-              <%= link_to admin_reports_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>通報一覧
+              <%= link_to hotel_reservations_path, class: "nav-link text-light" do %>
+                注文一覧
               <% end %>
             </li>
             <li>
               <%= link_to destroy_hotel_session_path, method: :delete,class: "nav-link text-light" do %>
-                <i <i "fa-solid fa-cart-shopping" style="color: white"></i>ログアウト
+                ログアウト
               <% end %>
             </li>
           <% else %>
             <li>
               <%= link_to about_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>About
+                About
               <% end %>
             </li>
             <li>
               <%= link_to menus_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>メニュー一覧
+                メニュー一覧
               <% end %>
             </li>
             <li>
               <%= link_to new_customer_registration_path,class: "nav-link text-light" do %>
-                <i style="color: white"></i>新規登録
+                新規登録
               <% end %>
             </li>
             <li>
               <%= link_to new_customer_session_path,class: "nav-link text-light" do %>
-                <i style="color: white"></i>ログイン
+                ログイン
               <% end %>
             </li>
             <li>
               <%= link_to  new_contact_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>お問合せ
+                お問合せ
               <% end %>
             </li>
           <% end %>
