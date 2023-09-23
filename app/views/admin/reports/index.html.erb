@@ -23,10 +23,18 @@
               <%= report.customer.full_name %>
             </td>
             <td>
-              <%= report.status_i18n %>
+              <% case report.status %>
+                <% when '未対応' %>
+                  <span class="status-untouched">未対応</span>
+                <% when '対応中' %>
+                  <span class="status-middle">対応中</span>
+                <% when '対応済み' %>
+                  <span class="status-finish">対応済み</span>
+              <% end %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
+</div>

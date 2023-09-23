@@ -20,7 +20,7 @@
             <td class="text-center">
               <%= link_to reservation.id, hotel_menus_reservation_path(reservation) %>
             </td>
-            <td><%= l reservation.created_at %></td>
+            <td><%= reservation.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
             <td><%= reservation.start_reservation_date %></td>
             <td><%= reservation.end_reservation_date %></td>
             <td><%= reservation.customer.full_name %> 様</td>

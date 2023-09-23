@@ -1,5 +1,5 @@
 class Hotel::HotelsController < ApplicationController
-  before_action :set_hotel, only: [:edit, :update, :withdraw]
+  before_action :set_hotel, only: [:hotel_mypage, :withdraw]
 
   def mypage
     @hotel = current_hotel

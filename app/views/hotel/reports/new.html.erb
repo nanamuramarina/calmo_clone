@@ -1,8 +1,9 @@
-<h3>通報</h3>
+<div class="container mt-3">
+ <h4 class="font-weight-bold mb-3 offset1">通報</h4>
 
 <%= form_with(model: [@customer, @report], url: hotel_customer_reports_path(@customer))do |f| %>
   <div class="form">
     <%= f.text_area :reason, rows:'3', class:"form-control" %>
-    <%= f.submit "通報する", class: "btn btn-danger" %>
+    <%= f.submit "通報する", class: "btn btn-danger mt-3 offset-10" %>
   </div>
 <% end %>

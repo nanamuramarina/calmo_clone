@@ -19,6 +19,6 @@ class Admin::ContactsController < ApplicationController
 
 
   def contact_params
-    params.require(:contact).permit(:name, :mail, :message,:is_support)
+    params.require(:contact).permit(:is_support)
   end
 end

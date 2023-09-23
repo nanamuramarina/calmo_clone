@@ -136,6 +136,22 @@
   background-color: #ec6d71;
 }
 
+// 通報ステータス
+.status-untouched {
+  color: red;
+  font-weight: bold;
+}
+
+.status-middle {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-finish {
+  color: green;
+  font-weight: bold;
+}
+
 @media (max-width:767px) {
     .show-image{
         margin: 5px;

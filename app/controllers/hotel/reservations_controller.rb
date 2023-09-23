@@ -15,14 +15,16 @@ class Hotel::ReservationsController < ApplicationController
   end
 
   def update
-    reservation = Reservation.find(params[:id])
-    if reservation.update(status: params[:reservation][:status].to_i)
-       @reservation = reservation
-      render :show
-    else
-      render :edit
-    end
+  @reservation = Reservation.find(params[:id])
+
+  if @reservation.update(status: params[:reservation][:status].to_i)
+    flash[:notice] = "更新が成功しました"
+    render :show 
+  else
+    flash[:alert] = "更新が失敗しました"
+    render :edit
   end
+end
 
   private
   def reservation_params
