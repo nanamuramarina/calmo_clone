@@ -12,9 +12,11 @@ class Public::CustomersController < ApplicationController
 
   def update
    if current_customer.update(customer_params)
+     flash[:notice] = "プロフィールが更新されました。"
      redirect_to mypage_path
    else
      redirect_to infomation_path
+     flash[:alert] = "プロフィールの更新に失敗しました。"
    end
   end
 

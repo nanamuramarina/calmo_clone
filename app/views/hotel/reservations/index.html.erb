@@ -18,7 +18,7 @@
         <% @reservations.each do |reservation| %>
           <tr>
             <td class="text-center">
-              <%= link_to reservation.id, hotel_menus_reservation_path(reservation) %>
+              <%= link_to reservation.id, hotel_reservation_path(reservation) %>
             </td>
             <td><%= reservation.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
             <td><%= reservation.start_reservation_date %></td>

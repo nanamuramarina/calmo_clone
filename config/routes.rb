@@ -31,10 +31,8 @@ Rails.application.routes.draw do
   end
 
   namespace :hotel do
-    resources :menus, only: [:index, :new, :create, :show, :edit, :update] do
-      resources :reservations, only: [:show, :edit, :update]
-    end
-    resources :reservations, only: [:index]
+    resources :menus, only: [:index, :new, :create, :show, :edit, :update] 
+    resources :reservations, only: [:index, :show, :edit, :update]
     resources :customers, only: [:show, :index] do
       resources :reports, only: [:new, :create]
     end

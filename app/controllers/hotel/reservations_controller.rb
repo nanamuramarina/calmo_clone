@@ -1,5 +1,5 @@
 class Hotel::ReservationsController < ApplicationController
-  before_action :current_hotel, except: [:index]
+  # before_action :current_hotel, except: [:index]
   before_action :set_current_hotel
 
   def index

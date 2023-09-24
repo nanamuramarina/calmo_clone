@@ -43,8 +43,8 @@
       <%= f.hidden_field :end_reservation_date, value: @reservation.end_reservation_date %>
       <%= f.hidden_field :end_reservation_time, value: @reservation.end_reservation_time %>
       <%= f.hidden_field :billing_fee, value: @reservation.billing_fee %>
-      <div class="mt-3 mb-5 d-flex justify-content-center">
-  <%= f.submit '修正する', class: "btn btn-outline-primary mr-2", name: :back %>
+      <div class="mt-3 d-flex justify-content-center">
+
   <%= f.submit '予約を確定する', class: "btn btn-outline-success" %>
 </div>
 
@@ -52,3 +52,7 @@
     </div>
   <% end %>
 </div>
+<div class="offset-8 mb-5 mt-2">
+  <%= link_to '修正する', new_menu_reservation_path(menu_id: @menu.id), class: "btn btn-outline-primary mr-2" %>
+</div>
+

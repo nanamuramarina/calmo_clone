@@ -34,7 +34,7 @@
         <th>ステータス</th>
         <td>
           <%= @reservation.status %>
-          <%= link_to "編集", edit_hotel_menus_reservation_path, class: "btn btn-outline-primary btn-sm offset-1" %>
+          <%= link_to "編集", edit_hotel_reservation_path(@reservation), class: "btn btn-outline-primary btn-sm offset-1" %>
         </td>
       </tr>
     </table>
