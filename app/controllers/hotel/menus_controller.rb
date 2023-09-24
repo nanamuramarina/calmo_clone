@@ -22,7 +22,7 @@ class Hotel::MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find_by(params[:id])
+    @menu = Menu.find(params[:id])
   end
 
   def edit
@@ -43,6 +43,7 @@ class Hotel::MenusController < ApplicationController
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy
+    flash[:notice] = "メニューを削除しました"
     redirect_to root_path
   end
 

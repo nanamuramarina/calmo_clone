@@ -1,7 +1,7 @@
  <div class="container mt-3">
 
   <h4 class="font-weight-bold"><%= @contact.name %>さんのお問合せ</h4>
-<%= form_with model: @contact, url: admin_contact_path(@contact), method: :patch do |f| %>
+  <%= form_with model: @contact, url: admin_contact_path(@contact), method: :patch do |f| %>
   <table class="table table-bordered mt-5">
     <tr>
       <th>氏名</th>

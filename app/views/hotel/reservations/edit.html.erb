@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <h4 class="font-weight-bold mb-3 offset-2">予約詳細</h4>
+  <h4 class="font-weight-bold mb-3 offset-2">予約編集</h4>
   <div class="col-lg-6 col-md-9 col-sm-4 offset-3">
     <table class="table table-border">
       <tr>
@@ -31,7 +31,7 @@
         <td><%= @reservation.menu.title %></td>
       </tr>
       <tr>
-        <%= form_with model: @reservation, url: hotel_reservation_path(@reservation.id), method: :patch, local: true do |f| %>
+        <%= form_with model: @reservation, url: hotel_reservation_path(@reservation.id), method: :patch do |f| %>
         <div class="owner-reservations-show--edit-status">
           <th><%= f.label :status %></th>
           <td>
