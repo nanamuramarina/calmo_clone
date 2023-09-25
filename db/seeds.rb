@@ -16,7 +16,7 @@ customer1 = Customer.find_or_create_by!(email: "taro@mail") do |customer|
   customer.last_name = "山田"
   customer.first_name = "太郎"
   customer.last_name_kana = "ヤマダ"
-  customer.first_name_kana = "たろう"
+  customer.first_name_kana = "タロウ"
   customer.phone_number = "11111111111"
   customer.post_code = "1111111"
   customer.address = "東京都八王子市南1-1"
@@ -72,7 +72,7 @@ end
 
 
 menu1 = Menu.find_or_create_by!(
-  hotel: hotel1, 
+  hotel: hotel1,
   title: "素泊まり",
   price: 3000,
   detail: "リモートワークに活用いただけます",
@@ -92,7 +92,7 @@ menu2 = Menu.find_or_create_by!(
 menu2.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu2.jpg"), filename: "sample-menu2.jpg")
 
 menu3 = Menu.find_or_create_by!(
-  hotel: hotel1, 
+  hotel: hotel1,
   title: "夕食、朝食付",
   price: 6000,
   detail: "夜は和食ディナー、朝はバイキングがございます",
@@ -102,7 +102,7 @@ menu3 = Menu.find_or_create_by!(
 menu3.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu3.jpg"), filename: "sample-menu3.jpg")
 
 menu4 = Menu.find_or_create_by!(
-  hotel: hotel2, 
+  hotel: hotel2,
   title: "シングルルーム",
   price: 5000,
   detail: "モーニング付となっております",
@@ -112,7 +112,7 @@ menu4 = Menu.find_or_create_by!(
 menu4.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu4.jpg"), filename: "sample-menu4.jpg")
 
 menu5 = Menu.find_or_create_by!(
-  hotel: hotel2, 
+  hotel: hotel2,
   title: "ツインルーム",
   price: 4500,
   detail: "モーニング付となっております",
@@ -122,7 +122,7 @@ menu5 = Menu.find_or_create_by!(
 menu5.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu5.jpg"), filename: "sample-menu5.jpg")
 
 menu6 = Menu.find_or_create_by!(
-  hotel: hotel2, 
+  hotel: hotel2,
   title: "ダブルルーム",
   price: 4000,
   detail: "モーニング付となっております",
@@ -132,7 +132,7 @@ menu6 = Menu.find_or_create_by!(
 menu6.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu6.jpg"), filename: "sample-menu6.jpg")
 
 menu7 = Menu.find_or_create_by!(
-  hotel: hotel3, 
+  hotel: hotel3,
   title: "源泉掛け流し大浴場",
   price: 7000,
   detail: "大浴場が6時から２４時までご自由にご利用いただけます。夕食、朝食付",
@@ -152,7 +152,7 @@ menu8 = Menu.find_or_create_by!(
 menu8.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu8.jpg"), filename: "sample-menu8.jpg")
 
 menu9 = Menu.find_or_create_by!(
-  hotel: hotel3, 
+  hotel: hotel3,
   title: "客室露天付",
   price: 14000,
   detail: "客室に当店自慢の温泉がございます。夕食、朝食付",
@@ -194,5 +194,15 @@ Reservation.find_or_create_by!(customer_id: customer3.id, menu_id: menu7.id) do 
   reservation.billing_fee = 14000
   reservation.status = 0
 end
+
+Report.find_or_create_by!(customer_id: customer1.id, hotel_id: hotel1.id) do |report|
+  report.reason = "備品持ち帰り"
+end
+
+Contact.create!(
+  name: "山田太郎",
+  mail: "taro@mail",
+  message: "退会になっていることについて"
+)
 
 puts "seedの実行が完了しました"
