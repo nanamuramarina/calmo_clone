@@ -1,6 +1,6 @@
 class Public::MenusController < ApplicationController
   def index
-    @menu = Menu.all
+    @menu = Menu.all.order(created_at: :desc)
   end
 
   def show
