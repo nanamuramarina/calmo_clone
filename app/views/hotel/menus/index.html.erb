@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-5">
 
   <div class="row d-flex justify-content-between">
     <h3 class="font-weight-bold ml-2">メニュー一覧</h3>
@@ -6,7 +6,7 @@
   </div>
 
   <div class="row mt-3">
-    <table class="table table-hover table-sm">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>メニューID</th>
@@ -21,7 +21,7 @@
             <td><%= menu.id %></td>
             <td class="row">
               <%= link_to hotel_menu_path (menu.id) do %>
-                <%= image_tag menu.get_image(40, 27), class: "mr-2" %>
+                <%= image_tag menu.get_image(60, 40), class: "mr-2" %>
                 <%= menu.title %>
               <% end %>
             </td>

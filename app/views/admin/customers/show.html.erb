@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-5">
 
   <h4 class="font-weight-bold"><%= @customer.full_name %>さんの会員詳細</h4>
 
@@ -39,7 +39,6 @@
     </tr>
   </table>
   <div class="d-flex justify-content-center mt-4">
-    <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-sm btn-outline-success mr-4" %>
-    <%#= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-sm btn-outline-primary" %>
+    <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-outline-success mr-4" %>
   </div>
 </div>

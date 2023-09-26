@@ -12,8 +12,10 @@ class Hotel::HotelsController < ApplicationController
 
   def update
    if current_hotel.update(hotel_params)
+     flash[:notice] = "プロフィールが更新されました。"
      redirect_to hotel_mypage_path
    else
+     flash[:alert] = "プロフィールの更新に失敗しました。"
      redirect_to holel_infomation_path
    end
   end

@@ -15,8 +15,9 @@ class Public::CustomersController < ApplicationController
      flash[:notice] = "プロフィールが更新されました。"
      redirect_to mypage_path
    else
-     redirect_to infomation_path
      flash[:alert] = "プロフィールの更新に失敗しました。"
+     redirect_to infomation_path
+     
    end
   end
 
