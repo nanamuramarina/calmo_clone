@@ -4,7 +4,7 @@
 ### サイトテーマ
 利用者も宿泊施設も穏やかな気持ちで利用できる予約サイト
 
-![](https://i.gyazo.com/193d8f7dd0106eddc4bd758e65a188dd.jpg)
+![](https://i.gyazo.com/027df1c8d6cfb07ff6d073241b329430.jpg)
 
 ### テーマを選んだ理由
 ルールを守るお客様を尊重したいということをテーマとしています。<br>
@@ -24,7 +24,16 @@
 * 宿泊施設を予約したい時
 
 ## 設計書
-* ER図:https://i.gyazo.com/32d9afef34c29b3e232264f9eed923b5.png
+* ER図:https://i.gyazo.com/66122c1a0d77b6921638d4286f497437.png
+* UI Flows
+  * 管理者:https://i.gyazo.com/09c04c8ab2443cdda028e02df0e11273.png
+  * ホテル:https://i.gyazo.com/d22334259df9444ef5c9b7fa6a0774ea.png
+  * 会員:https://i.gyazo.com/018dc44f49d3cda22b15c140116da0f3.png
+
+## 使用方法
+#### 管理者用アカウント
+* メールアドレス: admin@admin
+* パスワード: adminmin
 
 ## 開発環境
 * OS : Linux(CentOS)

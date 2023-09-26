@@ -7,20 +7,20 @@
   <div class="text-overlay">
     <p class="overlay-text">ようこそ！</br>calmoへ</p>
   </div>
-
- <div class="row text-center">
-  <h3 class="new ml-5" style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">新着商品</h3>
-  <div class="container mb-5">
-    <div class="row justify-content-center mt-5">
-      <% @new_menus.each do |menu| %>
-        <div class="col-sm-12 col-lg-4" style="margin: 2rem 0;">
-          <%= link_to menu_path(menu) do %>
-            <p class="img"><%= image_tag menu.image, size: '350x250' %></p>
-          <% end %>
-          <p style="font-weight: bold; font-size: 18px;"><%= menu.title %></p>
-          <p>¥<%= menu.price %></p>
-        </div>
-      <% end %>
+  <h3 class="new ml-5" style="font-weight: bold">新着商品</h3>
+  <div class="row text-center">
+    <div class="container mb-5">
+      <div class="row justify-content-center mt-3">
+        <% @new_menus.each do |menu| %>
+          <div class="col-sm-12 col-lg-4" style="margin: 2rem 0;">
+            <%= link_to menu_path(menu) do %>
+              <p class="img"><%= image_tag menu.image, size: '350x250' %></p>
+            <% end %>
+            <p style="font-weight: bold; font-size: 18px;"><%= menu.title %></p>
+            <p>¥<%= menu.price %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

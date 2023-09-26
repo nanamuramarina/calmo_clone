@@ -1,6 +1,6 @@
 <div class="container mt-3">
 
-  <h4 class="font-weight-bold mb-5"><%= @hotel.name %>さんの会員情報</h4>
+  <h4 class="font-weight-bold mb-5"><%= @hotel.name %>の情報</h4>
   <div class="row">
     <h5 class="font-weight-bold mb-3 ml-3">会員ID</h5>
     <p><%= @hotel.id %></p>
@@ -10,7 +10,7 @@
       <%= f.label :name, "ホテル名", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
       <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-lg-3 col-md-3 mx-2" %>
     </div>
-    
+
     <div class="row mb-3">
       <%= f.label :post_code, "郵便番号", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
       <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "col-lg-3 col-md-3 mx-2" %>
