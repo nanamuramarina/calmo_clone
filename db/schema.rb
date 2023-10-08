@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_12_095849) do
+ActiveRecord::Schema.define(version: 2023_10_07_141339) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 2023_09_12_095849) do
     t.integer "price", null: false
     t.text "detail", null: false
     t.boolean "is_available", default: true, null: false
-    t.float "star"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -129,6 +128,14 @@ ActiveRecord::Schema.define(version: 2023_09_12_095849) do
     t.integer "number", null: false
     t.integer "billing_fee", null: false
     t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "menu_id", null: false
+    t.float "star", default: 0.0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

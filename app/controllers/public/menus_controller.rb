@@ -9,7 +9,7 @@ class Public::MenusController < ApplicationController
 
   def edit
     @customer = current_customer
-     @menu = Menu.find(params[:id])
+     @star = Star.find(params[:id])
   end
 
   def update
@@ -26,7 +26,7 @@ class Public::MenusController < ApplicationController
 
   private
 
-  def menu_params
-    params.require(:menu).permit(:star)
-  end
+#   def menu_params
+#     params.require(:menu).permit(:star)
+#   end
 end

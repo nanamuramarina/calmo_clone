@@ -6,7 +6,7 @@ class CreateMenus < ActiveRecord::Migration[6.1]
       t.integer :price, null: false
       t.text :detail, null: false
       t.boolean :is_available, null: false, default: true
-      t.float :star
+      # t.float :star
 
       t.timestamps
     end

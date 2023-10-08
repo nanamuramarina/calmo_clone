@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<%= form_with model: @menu, url: menu_path(@menu.id), method: :patch, local: true do |f| %>
+<%= form_with model: @star, url: menu_path(@star.id), method: :patch, local: true do |f| %>
 <div class="offset-6">
   <div id="stars">
 <label>Rate</label>
@@ -50,7 +50,7 @@
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
     starHalf: "<%= asset_path('star-half.png') %>",
-    scoreName: 'menu[star]'
+    scoreName: 'star[star]'
   };
   window.raty(elem, opt);
 </script>

@@ -75,8 +75,7 @@ menu1 = Menu.find_or_create_by!(
   hotel: hotel1,
   title: "素泊まり",
   price: 3000,
-  detail: "リモートワークに活用いただけます",
-  star: 3
+  detail: "リモートワークに活用いただけます"
 )
 
 menu1.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu1.jpg"), filename: "sample-menu1.jpg")
@@ -86,7 +85,6 @@ menu2 = Menu.find_or_create_by!(
   title: "朝食付",
   price: 4000,
   detail: "朝食バイキングございます",
-  star: 3
 )
 
 menu2.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu2.jpg"), filename: "sample-menu2.jpg")
@@ -95,8 +93,7 @@ menu3 = Menu.find_or_create_by!(
   hotel: hotel1,
   title: "夕食、朝食付",
   price: 6000,
-  detail: "夜は和食ディナー、朝はバイキングがございます",
-  star: 3
+  detail: "夜は和食ディナー、朝はバイキングがございます"
 )
 
 menu3.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu3.jpg"), filename: "sample-menu3.jpg")
@@ -105,8 +102,7 @@ menu4 = Menu.find_or_create_by!(
   hotel: hotel2,
   title: "シングルルーム",
   price: 5000,
-  detail: "モーニング付となっております",
-  star: 4
+  detail: "モーニング付となっております"
 )
 
 menu4.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu4.jpg"), filename: "sample-menu4.jpg")
@@ -115,8 +111,7 @@ menu5 = Menu.find_or_create_by!(
   hotel: hotel2,
   title: "ツインルーム",
   price: 4500,
-  detail: "モーニング付となっております",
-  star: 4
+  detail: "モーニング付となっております"
 )
 
 menu5.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu5.jpg"), filename: "sample-menu5.jpg")
@@ -125,8 +120,7 @@ menu6 = Menu.find_or_create_by!(
   hotel: hotel2,
   title: "ダブルルーム",
   price: 4000,
-  detail: "モーニング付となっております",
-  star: 4
+  detail: "モーニング付となっております"
 )
 
 menu6.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu6.jpg"), filename: "sample-menu6.jpg")
@@ -135,8 +129,7 @@ menu7 = Menu.find_or_create_by!(
   hotel: hotel3,
   title: "源泉掛け流し大浴場",
   price: 7000,
-  detail: "大浴場が6時から２４時までご自由にご利用いただけます。夕食、朝食付",
-  star: 4
+  detail: "大浴場が6時から２４時までご自由にご利用いただけます。夕食、朝食付"
 )
 
 menu7.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu7.jpg"), filename: "sample-menu7.jpg")
@@ -145,8 +138,7 @@ menu8 = Menu.find_or_create_by!(
   hotel: hotel3,
   title: "お肉のバイキング！",
   price: 9000,
-  detail: "当店自慢のお肉のバイキングです。夕食、朝食付",
-  star: 4
+  detail: "当店自慢のお肉のバイキングです。夕食、朝食付"
 )
 
 menu8.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu8.jpg"), filename: "sample-menu8.jpg")
@@ -155,8 +147,7 @@ menu9 = Menu.find_or_create_by!(
   hotel: hotel3,
   title: "客室露天付",
   price: 14000,
-  detail: "客室に当店自慢の温泉がございます。夕食、朝食付",
-  star: 4
+  detail: "客室に当店自慢の温泉がございます。夕食、朝食付"
 )
 
 menu9.image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-menu9.jpg"), filename: "sample-menu9.jpg")
