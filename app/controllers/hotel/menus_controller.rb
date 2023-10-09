@@ -25,27 +25,41 @@ class Hotel::MenusController < ApplicationController
     @menu = Menu.find(params[:id])
   end
 
-  def edit
-    @menu = Menu.find(params[:id])
+def edit
+  @menu = Menu.find(params[:id]) 
+  if @menu.hotel_id != current_hotel.id
+    flash[:alert] = "他のホテルのメニューにアクセスする権限がありません"
+    redirect_to some_other_path
   end
+end
 
-  def update
-    @menu = Menu.find(params[:id])
+def update
+  @menu = Menu.find(params[:id])
+  if @menu.hotel_id == current_hotel.id
     if @menu.update(menu_params)
       flash[:notice] = "メニューを編集しました"
-      redirect_to hotel_menu_path(@menu.id)
+      redirect_to hotel_menu_path(@menu)
     else
       flash[:alert] = "メニューの編集に失敗しました"
       render :edit
     end
+  else
+    flash[:alert] = "他のホテルのメニューを編集する権限がありません"
+    redirect_to some_other_path 
   end
+end
 
-  def destroy
-    @menu = Menu.find(params[:id])
+def destroy
+  @menu = Menu.find(params[:id])
+  if @menu.hotel_id == current_hotel.id
     @menu.destroy
     flash[:notice] = "メニューを削除しました"
-    redirect_to root_path
+  else
+    flash[:alert] = "他のホテルのメニューを削除する権限がありません"
   end
+
+  redirect_to root_path
+end
 
   private
 

@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations, dependent: :destroy
+  has_many :sters, dependent: :destroy
 
   #通報機能
   has_many :reports, class_name: "Report", foreign_key: "reporter_id", dependent: :destroy

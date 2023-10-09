@@ -37,6 +37,9 @@
           <td>
             <div id="star_<%= @star.id %>"></div>
             <script>
+               = f.label :rate
+               = f.hidden_field :rate, id: :review_star
+
               $(document).on('turbolinks:load', function() {
                 let elem = document.querySelector('#star_<%= @star.id %>');
                 if (elem == null) return;

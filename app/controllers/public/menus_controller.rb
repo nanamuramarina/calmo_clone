@@ -5,11 +5,15 @@ class Public::MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
+    # コントローラ内で@star変数を設定する例
+    @star = Star.find_by(id: params[:id])
+    @star ||= 0
   end
 
   def edit
     @customer = current_customer
-     @star = Star.find(params[:id])
+    @menu = Menu.find(params[:id])
+    @star = Star.find_by(id: params[:id]) || 0
   end
 
   def update

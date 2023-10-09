@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   end
 
   namespace :hotel do
-    resources :menus, only: [:index, :new, :create, :show, :edit, :update] 
+    resources :menus, only: [:index, :new, :create, :show, :edit, :update]
     resources :reservations, only: [:index, :show, :edit, :update]
     resources :customers, only: [:show, :index] do
       resources :reports, only: [:new, :create]
@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :create]
     resources :menus do
       resources :reservations, only: [:new, :create]
+      resources :stars, only: [:create, :destroy]
     end
   end
 
