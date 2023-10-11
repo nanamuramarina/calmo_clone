@@ -41,5 +41,5 @@ class Public::CustomersController < ApplicationController
   def set_customer
     @customer = Customer.find_by(params[:email])
   end
-
+  
 end

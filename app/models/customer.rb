@@ -42,6 +42,10 @@ class Customer < ApplicationRecord
     end
   end
 
+  def active_for_authentication?
+    super && !is_valid?
+  end
+
   #ゲストログイン
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
